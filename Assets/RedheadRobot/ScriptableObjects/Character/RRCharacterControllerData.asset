@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8dbddd7e7126440b4780b34665b63b, type: 3}
+  m_Name: RRCharacterControllerData
+  m_EditorClassIdentifier: 
+  maximumMovementSpeed: 8
+  characterMovementSpeed: 8
+  characterFallMovementSpeed: 3
+  gravity: -9.81
+  jumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 7.0175166
+      inSlope: 0.09611056
+      outSlope: 0.09611056
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.7078707
+      value: 6.9450603
+      inSlope: -3.5753078
+      outSlope: -3.5753078
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: -55.735138
+      outSlope: -55.735138
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  fallThreshold: 0.005
+  jumpSpeedDecreasePercentage: 0.01
+  moveWhileJumping: 1
+  rotateWhileJumping: 1
+  detectHeadJumpCollision: 1
+  holdToJump: 1
+  withoutCameraRotationSpeed: 5
+  rotationSpeed: 20
+  rotationFallSpeed: 30
+  rotationDegreePerSecond: 120
+  thirdPersonFollowCamera: {fileID: 114339141765591704, guid: b74dc67d6ed9987468adcb7a61ee40e5,
+    type: 2}
+  verticalAxis: Vertical
+  horizontalAxis: Horizontal
+  jumpAxis: Jump
