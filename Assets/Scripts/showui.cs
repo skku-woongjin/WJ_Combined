@@ -6,8 +6,11 @@ public class showui : MonoBehaviour
 {
     public GameObject ButtonCanv;
     public GameObject UdangCanv;
+    public GameObject GuardBot;
 
     public GameObject sphere;
+    Animation anim;
+    List<string> animArray;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -15,6 +18,14 @@ public class showui : MonoBehaviour
         {
             GameManager.Instance.curGroup = GetComponent<ConvGroup>();
             ButtonCanv.transform.rotation = Quaternion.LookRotation(ButtonCanv.transform.position - other.transform.GetComponentInChildren<Camera>().transform.position);
+            GuardBot.transform.position = new Vector3(other.transform.position.x,other.transform.position.y+1.5f,other.transform.position.z);
+            GuardBot.transform.rotation = Quaternion.LookRotation(other.transform.GetComponentInChildren<Camera>().transform.position-GuardBot.transform.position);
+            anim = GuardBot.GetComponent<Animation>();
+            animArray = new List<string>();
+            AnimationArray();
+
+            anim.Play(animArray[0]);
+            anim.wrapMode = WrapMode.Once;
             ButtonCanv.SetActive(true);
             if (!sphere.activeSelf)
             {
@@ -22,6 +33,14 @@ public class showui : MonoBehaviour
             }
         }
     }
+    public void AnimationArray() 
+    { 
+        foreach (AnimationState state in anim) 
+        {
+            animArray.Add(state.name); 
+        }
+    }
+
 
     private void OnCollisionExit(Collision other)
     {
