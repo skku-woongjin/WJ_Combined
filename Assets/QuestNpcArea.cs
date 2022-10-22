@@ -7,6 +7,7 @@ using UnityEngine;
 public class QuestNpcArea : MonoBehaviour
 {
     bool check3Second = true;
+    bool checkIN = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,25 +25,31 @@ public class QuestNpcArea : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && check3Second)
+        if (other.gameObject.CompareTag("Player") && check3Second && checkIN == false)
         {
+            checkIN = true;
             check3Second = false;
             transform.parent.GetComponent<SaySomething>().say("퀘스트가 나올거야!");
             GameManager.Instance.questGiver = transform.parent.GetComponent<SaySomething>();
             GameManager.Instance.recAgent.recommend();
+            transform.parent.rotation = Quaternion.LookRotation(other.transform.GetComponentInChildren<Camera>().transform.position - transform.parent.position);
             StartCoroutine(checkWait());
             
-            transform.parent.rotation = Quaternion.LookRotation(other.transform.GetComponentInChildren<Camera>().transform.position - transform.parent.position);
+            
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && check3Second)
+        if (other.gameObject.CompareTag("Player") && check3Second && checkIN == true)
+
         {
+            checkIN = false;
+            check3Second = false;
             transform.parent.GetComponent<SaySomething>().say("퀘스트 성공!");
             GameManager.Instance.starReward += 1;
             Debug.Log(GameManager.Instance.starReward);
             transform.parent.rotation = Quaternion.LookRotation(transform.parent.position - other.transform.GetComponentInChildren<Camera>().transform.position);
+            StartCoroutine(checkWait());
         }
     }
 }
