@@ -13,8 +13,10 @@ public class Quest
 {
     public string keywords;
 }
+
 public class request : MonoBehaviour
 {
+    public bool questServer;
     public TMP_Text questText;
     public TMP_Text catQuestText;
     public Button QuestBtn;
@@ -48,8 +50,9 @@ public class request : MonoBehaviour
         GameManager.Instance.curQuest = curloc;
         //actionQuest = actionKeyword[Random.Range(0, actionKeyword.Length)];
         Debug.Log("뽑힌 Keywords : " + locationQuest);
-        //NOTE 여기 일단 지ㅓㅗㅁ
-        StartCoroutine(UploadKeyword(locationQuest));
+
+        if (questServer)
+            StartCoroutine(UploadKeyword(locationQuest));
         questIsGenerated = true;
         GameManager.Instance.idleAgent.GetComponent<SaySomething>().say("퀘스트를 기다리는중이야!");
     }
@@ -60,10 +63,17 @@ public class request : MonoBehaviour
         GameManager.Instance.curQuest = curloc;
         //actionQuest = actionKeyword[Random.Range(0, actionKeyword.Length)];
         Debug.Log("뽑힌 Keywords : " + locationQuest);
-        //NOTE 여기 일단 지ㅓㅗㅁ
-        StartCoroutine(UploadKeyword(locationQuest));
+        if (questServer)
+        {
+            StartCoroutine(UploadKeyword(locationQuest));
+            GameManager.Instance.questGiver.say("퀘스트를 기다리는중이야!");
+        }
+        else
+        {
+            GameManager.Instance.questGiver.say(locationQuest);
+        }
         questIsGenerated = true;
-        GameManager.Instance.idleAgent.GetComponent<SaySomething>().say("퀘스트를 기다리는중이야!");
+
     }
     public void CheckQuestSuccess()
     {
@@ -98,7 +108,7 @@ public class request : MonoBehaviour
         string bodyData = JsonUtility.ToJson(body);
         //Debug.Log(bodyData);
         // var postData = System.Text.Encoding.UTF8.GetBytes(bodyData);
-        var req = new UnityWebRequest("http://43.201.36.173:5000/prediction", "POST");
+        var req = new UnityWebRequest("http://13.209.97.140:5000/prediction", "POST");
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(bodyData);
         req.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
         req.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
@@ -169,9 +179,10 @@ public class request : MonoBehaviour
                 }
             }
 
-            GameManager.Instance.idleAgent.GetComponent<SaySomething>().say(quest);
+            GameManager.Instance.questGiver.say(quest);
             KeywordUI.SetActive(true);
             keyWords.text = "키워드: " + keywords.Replace("*", ",").Replace("0", "").Replace("None", "").Replace("n개", "").Replace("n번", "").Replace("n회", "");
+            //TODO - 좋아 싫어 띄우기 
             GameManager.Instance.idleAgent.Invoke("showOkNoQuest", 0.5f);
         }
 

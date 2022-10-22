@@ -9888,6 +9888,8 @@ MonoBehaviour:
   - "\uB3C4\uC11C\uAD00"
   - "\uB180\uC774\uD130"
   - "\uD589\uC131"
+  recAgent: {fileID: 1061234228}
+  questGiver: {fileID: 0}
 --- !u!114 &874421062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9900,6 +9902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5fe0a5219764a6a81a7fba77a7403e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questServer: 1
   questText: {fileID: 46042522}
   catQuestText: {fileID: 0}
   QuestBtn: {fileID: 0}
@@ -17819,6 +17822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5fe0a5219764a6a81a7fba77a7403e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questServer: 0
   questText: {fileID: 0}
   catQuestText: {fileID: 0}
   QuestBtn: {fileID: 0}
@@ -19231,7 +19235,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ff14134b548ad4790809bd7ffdffbf32, type: 2}
+  - {fileID: 2100000, guid: 262d8cbc02b104990841408098431457, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22661,7 +22665,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4480896120816849755, guid: 7a3035fc5bc02b44b8c8257b01f1e56b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7a3035fc5bc02b44b8c8257b01f1e56b, type: 3}
 --- !u!1001 &5097770583171749384
 PrefabInstance:
