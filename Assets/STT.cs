@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class STT : MonoBehaviour
 {
     public Button mic;
+    public GameObject chatmanager;
     
 
     [System.Serializable]
@@ -165,11 +166,12 @@ public class STT : MonoBehaviour
             }
             else{
                 string responsebody=uwr.downloadHandler.text;
-                Debug.Log("[SpeechToText] response body json: "+responsebody);
+                //Debug.Log("[SpeechToText] response body json: "+responsebody);
                 ResponseBody sttResponse=JsonUtility.FromJson<ResponseBody>(responsebody);
                 //Debug.Log("text: "+sttResponse.results[0].alternatives[0].transcript);
                 string text=sttResponse.results[0].alternatives[0].transcript;
-                
+                Debug.Log("say: "+text);
+                chatmanager.GetComponent<ChatManager>().Chat(true,text,"");
                 GameManager.Instance.owner.GetComponent<SaySomething>().say(text);
             }
         }
