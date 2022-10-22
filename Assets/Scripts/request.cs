@@ -86,6 +86,7 @@ public class request : MonoBehaviour
             StartCoroutine(GameManager.Instance.idleAgent.GetComponent<SaySomething>().petFadeOut());
 
             questIsGenerated = false;
+            GameManager.Instance.idleAgent.endlead();
         }
     }
     // IEnumerator getRequest(string uri)
