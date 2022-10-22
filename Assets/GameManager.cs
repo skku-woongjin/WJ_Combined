@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text locationUI;
     public Transform[] destinations;
     public int curQuest = -1;
-    public GameObject GaurdNpc;
+    public int starReward;
     public static GameManager Instance
     {
         get
