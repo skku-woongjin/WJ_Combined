@@ -41,7 +41,10 @@ public class RecommendAgentMax : Agent
     public int numOfFlags;
 
     public Vector3[] flagpos;
-
+    public void recommendMax()
+    {
+        RequestDecision();
+    }
     void setRandomPosition()
     {
         flagGrid.ClearChannel(0);
@@ -141,6 +144,7 @@ public class RecommendAgentMax : Agent
 
     public bool showResult;
     public float showTime;
+    
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         var action = actionBuffers.DiscreteActions[0];
@@ -158,7 +162,12 @@ public class RecommendAgentMax : Agent
             AddReward(flagVisited[action] / g);
 
             if (debugReward)
-                Debug.Log("id: " + action + "\n #visited: " + flagVisited[action] + " reward: " + (1 - flagVisited[action] / g));
+            {
+                Debug.Log("id: " + action + "\n #visited: " + flagVisited[action] + " reward: " + (flagVisited[action] / g));
+                Debug.Log(GameManager.Instance.placeNames[action]);
+                GameManager.Instance.req.NewQuest(action);
+            }
+                
 
             if (warp)
             {
