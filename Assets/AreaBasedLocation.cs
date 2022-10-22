@@ -32,5 +32,6 @@ public class AreaBasedLocation : MonoBehaviour
             GameManager.Instance.locationUI.text = "복도";
         }
         GameManager.Instance.req.CheckQuestSuccess();
+        GameManager.Instance.recAgent.updateFlags(locID);
     }
 }
