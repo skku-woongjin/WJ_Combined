@@ -114,7 +114,7 @@ public class RecommendAgentMax : Agent
         destQfilled = 0;
         going = false;
         curep = 0;
-    
+      
 
     }
 
@@ -149,7 +149,7 @@ public class RecommendAgentMax : Agent
             going = true;
 
             curdest = action;
-            
+           
             candidates.GetChild(action).GetComponent<FlagColor>().red();
 
             float g = destQSize / flagCount;
