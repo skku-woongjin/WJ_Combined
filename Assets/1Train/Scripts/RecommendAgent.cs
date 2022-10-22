@@ -104,7 +104,7 @@ public class RecommendAgent : Agent
             {
 
                 GameObject tmp = Instantiate(flagPrefab, candidates);
-                tmp.GetComponentInChildren<TMP_Text>().text = i + "";
+                // tmp.GetComponentInChildren<TMP_Text>().text = i + "";
             }
         }
 

@@ -1747,6 +1747,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 874421068, guid: b5339e4b990ade14f992aadf3bf8591b, type: 3}
+      propertyPath: flagsPos
+      value: 
+      objectReference: {fileID: 1749301591}
+    - target: {fileID: 874421068, guid: b5339e4b990ade14f992aadf3bf8591b, type: 3}
       propertyPath: showResult
       value: 0
       objectReference: {fileID: 0}
@@ -5702,7 +5706,7 @@ GameObject:
   - component: {fileID: 571172413}
   - component: {fileID: 571172412}
   - component: {fileID: 571172411}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5733,7 +5737,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 571172409}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -5970,7 +5974,7 @@ GameObject:
   - component: {fileID: 612280843}
   - component: {fileID: 612280842}
   - component: {fileID: 612280841}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6001,7 +6005,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 612280839}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -6310,7 +6314,7 @@ GameObject:
   - component: {fileID: 633327595}
   - component: {fileID: 633327594}
   - component: {fileID: 633327593}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6341,7 +6345,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 633327591}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -10208,7 +10212,7 @@ GameObject:
   - component: {fileID: 980711312}
   - component: {fileID: 980711311}
   - component: {fileID: 980711310}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10239,7 +10243,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 980711308}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -13725,7 +13729,7 @@ GameObject:
   - component: {fileID: 1334301916}
   - component: {fileID: 1334301915}
   - component: {fileID: 1334301914}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13756,7 +13760,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1334301912}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -13823,7 +13827,7 @@ GameObject:
   - component: {fileID: 1343017589}
   - component: {fileID: 1343017588}
   - component: {fileID: 1343017587}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13854,7 +13858,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1343017585}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -18619,7 +18623,7 @@ GameObject:
   - component: {fileID: 2032986065}
   - component: {fileID: 2032986064}
   - component: {fileID: 2032986063}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18650,7 +18654,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 2032986061}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -18717,7 +18721,7 @@ GameObject:
   - component: {fileID: 2049589073}
   - component: {fileID: 2049589072}
   - component: {fileID: 2049589071}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18748,7 +18752,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 2049589069}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
