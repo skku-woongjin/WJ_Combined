@@ -47,6 +47,7 @@ public class showui : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             ButtonCanv.SetActive(false);
+            anim.Stop(animArray[0]);
         }
     }
     // Start is called before the first frame update
