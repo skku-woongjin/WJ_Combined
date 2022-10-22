@@ -8,6 +8,7 @@ public class Talking_NPC_Area : MonoBehaviour
     public GameObject TTS_Audio;
     public bool Jurassic;
     public bool Solar;
+    public GameObject chatmanager;
     
     void Start()
     {
@@ -31,7 +32,7 @@ public class Talking_NPC_Area : MonoBehaviour
             else if(Jurassic){
                 text="나는 쥬라기로봇 다이노야. 어떤 주제에 대해 알고싶니?";
             }
-            
+            chatmanager.GetComponent<ChatManager>().Chat(false,text,"");
             
             TTS_Audio.GetComponent<TTS>().setText(text);
             transform.parent.GetComponent<SaySomething>().say(text);
