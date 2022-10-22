@@ -83,6 +83,8 @@ public class request : MonoBehaviour
             catCanJump.Play("jump");
             GameManager.Instance.idleAgent.GetComponent<SaySomething>().say("퀘스트 완료!");
             GameManager.Instance.missionManager.DeleteMission();
+            GameManager.Instance.coinVal = GameManager.Instance.coinVal + 1;
+            GameManager.Instance.Coin.text = (GameManager.Instance.coinVal).ToString();
             StartCoroutine(GameManager.Instance.idleAgent.GetComponent<SaySomething>().petFadeOut());
 
             questIsGenerated = false;

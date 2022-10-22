@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     public SaySomething questGiver;
     public MissionControl missionManager;
     public GameObject QuestUI;
+    public TMP_Text Coin;
+    public int coinVal;
     public static GameManager Instance
     {
         get

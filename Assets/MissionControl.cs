@@ -24,7 +24,7 @@ public class MissionControl : MonoBehaviour
     {
         //content.GetChild(0).gameObject.GetComponentsInChildren<TMP_Text>()[1].text = name;
         GameObject newMission = Instantiate<GameObject>(prefabMission, content);
-        newMission.gameObject.GetComponentsInChildren<TMP_Text>()[1].text = name + totalIndex;
+        newMission.gameObject.GetComponentsInChildren<TMP_Text>()[1].text = name;
         ChangeMissionColor();
         totalIndex += 1;
     }
