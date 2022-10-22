@@ -40,6 +40,13 @@ public class GameManager : MonoBehaviour
         }
     }
     // Start is called before the first frame update
+
+    public void petQuest()
+    {
+        idleAgent.GetComponent<SaySomething>().say("퀘스트가 나올거야!");
+        GameManager.Instance.questGiver = idleAgent.GetComponent<SaySomething>();
+        GameManager.Instance.recAgent.recommend();
+    }
     private void Awake()
     {
         gm = this;
