@@ -8919,7 +8919,7 @@ MonoBehaviour:
   - {fileID: 137562291}
   - {fileID: 0}
   curQuest: -1
-  GaurdNpc: {fileID: 77493155}
+  starReward: 0
 --- !u!114 &874421062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18862,6 +18862,11 @@ PrefabInstance:
     - target: {fileID: 8227474664110957977, guid: 7a3035fc5bc02b44b8c8257b01f1e56b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227474664557678563, guid: 7a3035fc5bc02b44b8c8257b01f1e56b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
