@@ -8,7 +8,7 @@ public class AreaScript : MonoBehaviour
     public RectTransform AreaRect,BoxRect,TextRect;
     public GameObject Tail;
     public Text UserText;
-    public Image UserImage;
+    
     public string User;
     // Start is called before the first frame update
     
