@@ -82,6 +82,7 @@ public class request : MonoBehaviour
             GameManager.Instance.curQuest = -1;
             catCanJump.Play("jump");
             GameManager.Instance.idleAgent.GetComponent<SaySomething>().say("퀘스트 완료!");
+            GameManager.Instance.missionManager.DeleteMission();
             StartCoroutine(GameManager.Instance.idleAgent.GetComponent<SaySomething>().petFadeOut());
 
             questIsGenerated = false;
@@ -180,6 +181,7 @@ public class request : MonoBehaviour
             }
 
             GameManager.Instance.questGiver.say(quest);
+            GameManager.Instance.missionManager.AddMission(quest);
             KeywordUI.SetActive(true);
             keyWords.text = "키워드: " + keywords.Replace("*", ",").Replace("0", "").Replace("None", "").Replace("n개", "").Replace("n번", "").Replace("n회", "");
             //TODO - 좋아 싫어 띄우기 

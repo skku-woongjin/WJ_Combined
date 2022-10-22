@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public string[] placeNames = { "쥐라기 파크", "거북선", "게임기", "자동차", "교실", "도서관", "놀이터", "태양계" };
     public RecommendAgent recAgent;
     public SaySomething questGiver;
+    public MissionControl missionManager;
     public static GameManager Instance
     {
         get
