@@ -23,8 +23,8 @@ public class showui : MonoBehaviour
             anim = GuardBot.GetComponent<Animation>();
             animArray = new List<string>();
             AnimationArray();
-
-            anim.Play(animArray[0]);
+            anim.Stop("Default");
+            anim.Play("Angry");
             //anim.wrapMode = WrapMode.Once;
             ButtonCanv.SetActive(true);
             if (!sphere.activeSelf)
@@ -47,7 +47,8 @@ public class showui : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             ButtonCanv.SetActive(false);
-            anim.Stop(animArray[0]);
+            anim.Stop("Angry");
+            anim.Play("Default");
         }
     }
     // Start is called before the first frame update
