@@ -18,7 +18,12 @@ public class MissionControl : MonoBehaviour
 
     }
     public void AddMission(string name){
-        content.GetChild(0).gameObject.GetComponentsInChildren<TMP_Text>()[0].text = name;
+        //content.GetChild(0).gameObject.GetComponentsInChildren<TMP_Text>()[1].text = name;
+        GameObject newMission = Instantiate<GameObject>(prefabMission, content);
+        newMission.gameObject.GetComponentsInChildren<TMP_Text>()[1].text = name;
+    }
+    public void DeleteMission(){
+        Destroy(content.GetChild(0).gameObject);
     }
     void Start()
     {
