@@ -25,7 +25,7 @@ public class showui : MonoBehaviour
             AnimationArray();
 
             anim.Play(animArray[0]);
-            anim.wrapMode = WrapMode.Once;
+            //anim.wrapMode = WrapMode.Once;
             ButtonCanv.SetActive(true);
             if (!sphere.activeSelf)
             {
