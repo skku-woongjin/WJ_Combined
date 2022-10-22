@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class QuestNpcArea : MonoBehaviour
 {
-    bool check3Second = false;
+    bool check3Second = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,11 +39,9 @@ public class QuestNpcArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && check3Second)
         {
-            check3Second = false;
             transform.parent.GetComponent<SaySomething>().say("퀘스트 성공!");
             GameManager.Instance.starReward += 1;
             Debug.Log(GameManager.Instance.starReward);
-            StartCoroutine(checkWait());
             transform.parent.rotation = Quaternion.LookRotation(transform.parent.position - other.transform.GetComponentInChildren<Camera>().transform.position);
         }
     }
