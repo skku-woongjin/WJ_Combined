@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427135, b: 0.5645232, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366753, g: 0.48427093, b: 0.5645238, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5824,7 +5824,7 @@ GameObject:
   - component: {fileID: 571172412}
   - component: {fileID: 571172411}
   m_Layer: 3
-  m_Name: Cylinder (7)
+  m_Name: lib
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5843,7 +5843,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1749301591}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &571172411
 CapsuleCollider:
@@ -6092,7 +6092,7 @@ GameObject:
   - component: {fileID: 612280842}
   - component: {fileID: 612280841}
   m_Layer: 3
-  m_Name: Cylinder (4)
+  m_Name: classroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6432,7 +6432,7 @@ GameObject:
   - component: {fileID: 633327594}
   - component: {fileID: 633327593}
   m_Layer: 3
-  m_Name: Cylinder (3)
+  m_Name: jurr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6445,13 +6445,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633327591}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.8, y: 0, z: 33.2}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -42.8, y: 0, z: 33.199997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1749301591}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &633327593
 CapsuleCollider:
@@ -9868,6 +9868,7 @@ MonoBehaviour:
   hateRateText: {fileID: 255618876}
   hatePercentUI: {fileID: 1046048852}
   locationUI: {fileID: 718195623}
+  destParent: {fileID: 1749301591}
   destinations:
   - {fileID: 1343017586}
   - {fileID: 980711309}
@@ -10502,7 +10503,7 @@ GameObject:
   - component: {fileID: 980711311}
   - component: {fileID: 980711310}
   m_Layer: 3
-  m_Name: Cylinder (1)
+  m_Name: solar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10521,7 +10522,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1749301591}
-  m_RootOrder: 1
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &980711310
 CapsuleCollider:
@@ -14174,7 +14175,7 @@ GameObject:
   - component: {fileID: 1334301915}
   - component: {fileID: 1334301914}
   m_Layer: 3
-  m_Name: Cylinder (5)
+  m_Name: turtleship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14193,7 +14194,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1749301591}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1334301914
 CapsuleCollider:
@@ -14272,7 +14273,7 @@ GameObject:
   - component: {fileID: 1343017588}
   - component: {fileID: 1343017587}
   m_Layer: 3
-  m_Name: Cylinder
+  m_Name: playground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14291,7 +14292,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1749301591}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1343017587
 CapsuleCollider:
@@ -17505,14 +17506,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1343017586}
-  - {fileID: 980711309}
-  - {fileID: 2049589070}
   - {fileID: 633327592}
-  - {fileID: 612280840}
   - {fileID: 1334301913}
   - {fileID: 2032986062}
+  - {fileID: 2049589070}
+  - {fileID: 612280840}
   - {fileID: 571172410}
+  - {fileID: 1343017586}
+  - {fileID: 980711309}
   m_Father: {fileID: 4688212609248360}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19584,7 +19585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5b8cb3c92494ad2a531cca5cfa76f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decreaseRate: 0.001
+  decreaseRate: 0.0005
   gridsize: 1
   normFactor: 5
 --- !u!4 &2017771526 stripped
@@ -19703,7 +19704,7 @@ GameObject:
   - component: {fileID: 2032986064}
   - component: {fileID: 2032986063}
   m_Layer: 3
-  m_Name: Cylinder (6)
+  m_Name: game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19722,7 +19723,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1749301591}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &2032986063
 CapsuleCollider:
@@ -19801,7 +19802,7 @@ GameObject:
   - component: {fileID: 2049589072}
   - component: {fileID: 2049589071}
   m_Layer: 3
-  m_Name: Cylinder (2)
+  m_Name: car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19815,12 +19816,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049589069}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.8, y: 0, z: -2.1}
+  m_LocalPosition: {x: -42.8, y: 0, z: 5.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1749301591}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &2049589071
 CapsuleCollider:
