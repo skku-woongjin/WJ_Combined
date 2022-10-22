@@ -114,10 +114,7 @@ public class RecommendAgentMax : Agent
         destQfilled = 0;
         going = false;
         curep = 0;
-        owner.GetComponent<OwnerController>().goTo(-1);
-        if (warp)
-            owner.GetComponent<OwnerController>().randomWarp(UnityEngine.Random.Range(15, destQSize - 1));
-        RequestDecision();
+      
 
     }
 
@@ -152,8 +149,7 @@ public class RecommendAgentMax : Agent
             going = true;
 
             curdest = action;
-            if (!warp)
-                owner.GetComponent<OwnerController>().goTo(action);
+           
             candidates.GetChild(action).GetComponent<FlagColor>().red();
 
             float g = destQSize / flagCount;
