@@ -27,6 +27,9 @@ public class QuestNpcArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            transform.parent.GetComponent<SaySomething>().say("퀘스트 성공!");
+            GameManager.Instance.starReward += 1;
+            Debug.Log(GameManager.Instance.starReward);
             transform.parent.rotation = Quaternion.LookRotation(transform.parent.position - other.transform.GetComponentInChildren<Camera>().transform.position);
         }
     }
