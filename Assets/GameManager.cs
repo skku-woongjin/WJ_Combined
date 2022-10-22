@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     public RecommendAgent recAgent;
     public SaySomething questGiver;
     public MissionControl missionManager;
+    public GameObject QuestUI;
+    public TMP_Text Coin;
+    public int coinVal;
     public static GameManager Instance
     {
         get

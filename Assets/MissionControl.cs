@@ -24,7 +24,7 @@ public class MissionControl : MonoBehaviour
     {
         //content.GetChild(0).gameObject.GetComponentsInChildren<TMP_Text>()[1].text = name;
         GameObject newMission = Instantiate<GameObject>(prefabMission, content);
-        newMission.gameObject.GetComponentsInChildren<TMP_Text>()[1].text = name + totalIndex;
+        newMission.gameObject.GetComponentsInChildren<TMP_Text>()[1].text = name;
         ChangeMissionColor();
         totalIndex += 1;
     }
@@ -44,9 +44,7 @@ public class MissionControl : MonoBehaviour
     }
     private void ChangeMissionColor()
     {
-        Debug.Log(content.GetChild(0).GetComponent<Image>().color);
         content.GetChild(0).GetComponent<Image>().color = Color.white;
-        Debug.Log(content.GetChild(0).GetComponent<Image>().color);
         for (int i = 1; i <= totalIndex; i++)
         {
             content.GetChild(i).GetComponent<Image>().color = new Color(56 / 255f, 56 / 255f, 56 / 255f);
