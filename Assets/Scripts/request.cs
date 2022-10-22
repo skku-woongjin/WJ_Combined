@@ -60,7 +60,7 @@ public class request : MonoBehaviour
     public void NewQuest(int locId)
     {
         locationQuest = GameManager.Instance.placeNames[locId];
-        GameManager.Instance.curQuest = curloc;
+        GameManager.Instance.curQuest = locId;
         //actionQuest = actionKeyword[Random.Range(0, actionKeyword.Length)];
         Debug.Log("뽑힌 Keywords : " + locationQuest);
         if (questServer)
