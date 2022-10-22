@@ -9880,14 +9880,14 @@ MonoBehaviour:
   curQuest: -1
   starReward: 0
   placeNames:
-  - "\uC950\uB77C\uAE30\uACF5\uC6D0"
+  - "\uC950\uB77C\uAE30 \uD30C\uD06C"
   - "\uAC70\uBD81\uC120"
   - "\uAC8C\uC784\uAE30"
   - "\uC790\uB3D9\uCC28"
   - "\uAD50\uC2E4"
   - "\uB3C4\uC11C\uAD00"
   - "\uB180\uC774\uD130"
-  - "\uD589\uC131"
+  - "\uD0DC\uC591\uACC4"
   recAgent: {fileID: 1061234228}
   questGiver: {fileID: 0}
 --- !u!114 &874421062
@@ -22693,6 +22693,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480896120117142670, guid: 7a3035fc5bc02b44b8c8257b01f1e56b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480896120538077999, guid: 7a3035fc5bc02b44b8c8257b01f1e56b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480896120860969980, guid: 7a3035fc5bc02b44b8c8257b01f1e56b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4480896120816849755, guid: 7a3035fc5bc02b44b8c8257b01f1e56b, type: 3}

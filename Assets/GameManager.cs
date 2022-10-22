@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     public TMP_Text hateRateText;
     public GameObject hatePercentUI;
     public TMP_Text locationUI;
+
+    public Transform destParent;
+
+    [HideInInspector]
     public Transform[] destinations;
     public int curQuest = -1;
     public int starReward;
@@ -35,5 +39,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         gm = this;
+        destinations = destParent.GetComponentsInChildren<Transform>();
     }
 }
