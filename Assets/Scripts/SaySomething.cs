@@ -11,6 +11,8 @@ public class SaySomething : MonoBehaviour
     public bool censor;
     public bool ispet;
     Image bubbleImg;
+    public bool isTTS;
+    public GameObject TTS_Audio;
 
     void Start()
     {
@@ -52,7 +54,10 @@ public class SaySomething : MonoBehaviour
         {
             bubble.GetComponentInChildren<TMP_Text>().text = line;
             bubble.SetActive(true);
+
+           
             StartCoroutine("fadeout");
+            
         }
 
 
@@ -60,9 +65,12 @@ public class SaySomething : MonoBehaviour
 
     private void Update()
     {
-        if (bubble.activeSelf)
-        {
-            bubble.transform.rotation = Quaternion.LookRotation(bubble.transform.position - camTransform.position);
+        // if (bubble.activeSelf)
+        // {
+        //     bubble.transform.rotation = Quaternion.LookRotation(bubble.transform.position - camTransform.position);
+        // }
+        if(isTTS){
+
         }
     }
 
