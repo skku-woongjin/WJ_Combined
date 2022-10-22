@@ -9,7 +9,7 @@ using MBaske.Sensors.Grid;
 using Unity.MLAgents.Policies;
 using System.Linq;
 
-public class RecommendAgent : Agent
+public class RecommendAgentMax : Agent
 {
     public bool autoHeuristic;
     public bool debugReward;
