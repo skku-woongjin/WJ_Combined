@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject QuestUI;
     public TMP_Text Coin;
     public int coinVal;
+    public PlayAnims dogPlay;
     public static GameManager Instance
     {
         get
