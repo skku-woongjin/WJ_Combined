@@ -45,9 +45,9 @@ public class QuestNpcArea : MonoBehaviour
         {
             checkIN = false;
             check3Second = false;
-            transform.parent.GetComponent<SaySomething>().say("퀘스트 성공!");
-            GameManager.Instance.starReward += 1;
-            Debug.Log(GameManager.Instance.starReward);
+            //transform.parent.GetComponent<SaySomething>().say("퀘스트 성공!");
+            //GameManager.Instance.starReward += 1;
+            //Debug.Log(GameManager.Instance.starReward);
             transform.parent.rotation = Quaternion.LookRotation(transform.parent.position - other.transform.GetComponentInChildren<Camera>().transform.position);
             StartCoroutine(checkWait());
         }

@@ -60,7 +60,7 @@ public class request : MonoBehaviour
     public void NewQuest(int locId)
     {
         locationQuest = GameManager.Instance.placeNames[locId];
-        GameManager.Instance.curQuest = curloc;
+        GameManager.Instance.curQuest = locId;
         //actionQuest = actionKeyword[Random.Range(0, actionKeyword.Length)];
         Debug.Log("뽑힌 Keywords : " + locationQuest);
         if (questServer)
@@ -82,9 +82,13 @@ public class request : MonoBehaviour
             GameManager.Instance.curQuest = -1;
             catCanJump.Play("jump");
             GameManager.Instance.idleAgent.GetComponent<SaySomething>().say("퀘스트 완료!");
+            GameManager.Instance.missionManager.DeleteMission();
+            GameManager.Instance.coinVal = GameManager.Instance.coinVal + 1;
+            GameManager.Instance.Coin.text = (GameManager.Instance.coinVal).ToString();
             StartCoroutine(GameManager.Instance.idleAgent.GetComponent<SaySomething>().petFadeOut());
 
             questIsGenerated = false;
+            GameManager.Instance.idleAgent.endlead();
         }
     }
     // IEnumerator getRequest(string uri)
@@ -180,6 +184,8 @@ public class request : MonoBehaviour
             }
 
             GameManager.Instance.questGiver.say(quest);
+            GameManager.Instance.missionManager.AddMission(quest);
+            GameManager.Instance.QuestUI.SetActive(true);
             KeywordUI.SetActive(true);
             keyWords.text = "키워드: " + keywords.Replace("*", ",").Replace("0", "").Replace("None", "").Replace("n개", "").Replace("n번", "").Replace("n회", "");
             //TODO - 좋아 싫어 띄우기 
