@@ -711,8 +711,15 @@ public class IdleAgent : Agent
     #region lead
     public Transform leadobj;
     public GameObject navIcon;
+
     public void lead()
     {
+        GetComponent<SaySomething>().say("내가 안내해줄게!");
+        Invoke("lead2", 2f);
+    }
+    public void lead2()
+    {
+        GetComponent<SaySomething>().bubble.SetActive(false);
         navIcon.SetActive(true);
         nav.stoppingDistance = 5;
         NavMeshHit hit;
