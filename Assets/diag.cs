@@ -39,7 +39,8 @@ public class diag : MonoBehaviour
         //StartCoroutine(MakeRequests());
     }
 
-    public void solar_start(string text){
+    public void solar_start(string text)
+    {
         StartCoroutine(MakeRequests(text));
     }
 
@@ -65,8 +66,8 @@ public class diag : MonoBehaviour
         AttachHeader(postRequest, "Authorization", "Bearer ya29.a0Aa4xrXMhGyN_RiVjLOH0OPB1Kte_58qGQ6z5eD648rzyYym0jp-aQGv1VhfvUl1TPiE4mjWCOmih_INuI0gNrqvnrB6kfeq8fMWlqWw7KF9oRguN0E25zuU2xNhol2XpqCqix3aczy2xSj7IX4tb8xh7lK3FDRxVNzfIf8fnWJk1TlRosTbYBh6baA4M0NPEtpBImaNqT3kaTwW754nkZGCH8iO3oHImRU3TS__Da5jhKIEaCgYKATASARISFQEjDvL9Z-ub2mCUDwIhVjQX_PdZiA0246");
         yield return postRequest.SendWebRequest();
         Debug.Log(postRequest.downloadHandler.text);
-        string split=postRequest.downloadHandler.text.Split("fulfillmentText\": \"", System.StringSplitOptions.RemoveEmptyEntries)[1];
-        split=split.Split("\",",System.StringSplitOptions.RemoveEmptyEntries)[0];
+        string split = postRequest.downloadHandler.text.Split("fulfillmentText\": \"", System.StringSplitOptions.RemoveEmptyEntries)[1];
+        split = split.Split("\",", System.StringSplitOptions.RemoveEmptyEntries)[0];
         Debug.Log(split);
         // var deserializedPostData = JsonUtility.FromJson<postResult>(postRequest.downloadHandler.text);
         GameManager.Instance.Solar_response=split;

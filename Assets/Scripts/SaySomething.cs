@@ -18,6 +18,10 @@ public class SaySomething : MonoBehaviour
     {
         camTransform = GameManager.Instance.cam;
         bubbleImg = bubble.GetComponentInChildren<Image>();
+        if (GetComponentInChildren<Animator>() != null)
+        {
+            GetComponentInChildren<Animator>().SetFloat("ConvSpeed", Random.Range(0.2f, 1f));
+        }
     }
     public void say(string line)
     {

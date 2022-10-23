@@ -186,7 +186,6 @@ public class request : MonoBehaviour
             GameManager.Instance.questGiver.say(quest);
             GameManager.Instance.missionManager.AddMission(quest);
             GameManager.Instance.QuestUI.SetActive(true);
-            KeywordUI.SetActive(true);
             keyWords.text = "키워드: " + keywords.Replace("*", ",").Replace("0", "").Replace("None", "").Replace("n개", "").Replace("n번", "").Replace("n회", "");
             //TODO - 좋아 싫어 띄우기 
             GameManager.Instance.idleAgent.Invoke("showOkNoQuest", 0.5f);
