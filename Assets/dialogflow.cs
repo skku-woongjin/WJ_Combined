@@ -9,20 +9,23 @@ using System.Text;
 
 
 
-public class dialogflow2{
-    public dfText query_input;
+// public class dialogflow2
+// {
+//     public dfText query_input;
 
-}
+// }
 
-public class dfText {
-   public dfText2 text;
+// public class dfText
+// {
+//     public dfText2 text;
 
-}
+// }
 
-public class dfText2 {
-    public string text;
-    public string language_code;
-}
+// public class dfText2
+// {
+//     public string text;
+//     public string language_code;
+// }
 
 
 // public class dialogflow : MonoBehaviour {
@@ -119,15 +122,17 @@ public class dfText2 {
 
 
 
-public class dialogflow : MonoBehaviour {
+public class dialogflow : MonoBehaviour
+{
 
-
-    public void start() {
+    private void start()
+    {
         Debug.Log("plz");
-    StartCoroutine(MakeRequests());
+        StartCoroutine(MakeRequests());
     }
 
-    private IEnumerator MakeRequests() {
+    private IEnumerator MakeRequests()
+    {
         //GET
         var getRequest = CreateRequest("https://dialogflow.clients6.google.com/v2/projects/dialogflow11-363401/agent/sessions/87106d06-a910-f202-4f14-cbd4ec7d7128:detectIntent");
 
@@ -152,10 +157,12 @@ public class dialogflow : MonoBehaviour {
 
     }
 
-    private UnityWebRequest CreateRequest(string path, RequestType type = RequestType.GET, object data = null) {
+    private UnityWebRequest CreateRequest(string path, RequestType type = RequestType.GET, object data = null)
+    {
         var request = new UnityWebRequest(path, "GET");
 
-        if(data != null) {
+        if (data != null)
+        {
             var bodyRaw = Encoding.UTF8.GetBytes(JsonUtility.ToJson(data));
             request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         }
@@ -167,20 +174,23 @@ public class dialogflow : MonoBehaviour {
 
     }
 
-    private void AttachHeader(UnityWebRequest request, string key, string value) {
-    request.SetRequestHeader(key, value);
+    private void AttachHeader(UnityWebRequest request, string key, string value)
+    {
+        request.SetRequestHeader(key, value);
     }
 
 
 }
 
-public enum RequestType {
+public enum RequestType
+{
     GET = 0,
     POST = 1,
     PUT = 2
 }
 
-public class Todo {
+public class Todo
+{
     public int uesrId;
     public int id;
     public string title;
@@ -190,11 +200,13 @@ public class Todo {
 
 
 
-public class PostData {
+public class PostData
+{
     public string Hero;
     public int PowerLevel;
 }
 
-public class postResult {
-    public string success {get; set; }
+public class postResult
+{
+    public string success { get; set; }
 }
