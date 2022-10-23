@@ -11,8 +11,9 @@ public class Talking_NPC_Area : MonoBehaviour
     public bool Solar;
     bool In_Area = false;
     public GameObject chatmanager;
-
-
+    public GameObject chat_log;
+    
+    
     void Start()
     {
 
@@ -26,8 +27,8 @@ public class Talking_NPC_Area : MonoBehaviour
         {
             Debug.Log("유저 솔라 영역안에 있음");
             dialogflow.GetComponent<diag>().solar_start(GameManager.Instance.userText);
-            // NPC_Talking(GameManager.Instance.)
-            GameManager.Instance.userText_set = false;
+            
+            GameManager.Instance.userText_set=false;
         }
     }
 
@@ -37,6 +38,8 @@ public class Talking_NPC_Area : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            In_Area=true;
+            chat_log.SetActive(true);
             Debug.Log("Enter area");
             if (Solar)
             {
@@ -64,7 +67,9 @@ public class Talking_NPC_Area : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            In_Area=false;
             Debug.Log("Exit area");
+            chat_log.SetActive(false);
         }
     }
 }
