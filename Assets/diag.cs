@@ -70,9 +70,25 @@ public class diag : MonoBehaviour
         split = split.Split("\",", System.StringSplitOptions.RemoveEmptyEntries)[0];
         Debug.Log(split);
         // var deserializedPostData = JsonUtility.FromJson<postResult>(postRequest.downloadHandler.text);
-        GameManager.Instance.Solar_response=split;
-        talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(split);
-        GameManager.Instance.userText_set=false;
+        GameManager.Instance.Solar_response = split;
+        if (split.Split("*", System.StringSplitOptions.RemoveEmptyEntries).Length > 1)
+        {
+            StartCoroutine(sayTwo(split.Split("*", System.StringSplitOptions.RemoveEmptyEntries)[0], split.Split("*", System.StringSplitOptions.RemoveEmptyEntries)[1]));
+        }
+        else
+        {
+            split = split.Split("*", System.StringSplitOptions.RemoveEmptyEntries)[0];
+            talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(split);
+        }
+
+        GameManager.Instance.userText_set = false;
+    }
+
+    IEnumerator sayTwo(string s1, string s2)
+    {
+        talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(s1);
+        yield return new WaitForSecondsRealtime(6f);
+        talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(s2);
     }
 
     private UnityWebRequest CreateRequest(string path, RequestType type = RequestType.GET, dialogflow2 data = null)
