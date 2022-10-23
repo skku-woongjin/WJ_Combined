@@ -48,7 +48,7 @@ public class ChatManager : MonoBehaviour
         Area.transform.SetParent(ContentRect.transform, false);
         Area.BoxRect.sizeDelta = new Vector2(300, Area.BoxRect.sizeDelta.y);
         Area.TextRect.GetComponent<TMP_Text>().text = text;
-
+        Fit(Area.BoxRect);
 
 
         
