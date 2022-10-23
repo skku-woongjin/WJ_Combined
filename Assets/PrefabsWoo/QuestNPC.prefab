@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab71c52903404b72a3d26304ec1bff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubble: {fileID: 0}
+  bubble: {fileID: 7229215985098081489}
   censor: 0
   ispet: 0
   isTTS: 0
@@ -685,8 +685,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bubble
       objectReference: {fileID: 0}
+    - target: {fileID: 1499811395703763247, guid: dc2d543a37a9a47039509721bc18e2eb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc2d543a37a9a47039509721bc18e2eb, type: 3}
+--- !u!1 &7229215985098081489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1499811395703763247, guid: dc2d543a37a9a47039509721bc18e2eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 8107379994434057726}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7229215985098081501 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1499811395703763235, guid: dc2d543a37a9a47039509721bc18e2eb,
