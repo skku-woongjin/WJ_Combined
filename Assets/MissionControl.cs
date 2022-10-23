@@ -27,6 +27,7 @@ public class MissionControl : MonoBehaviour
         newMission.gameObject.GetComponentsInChildren<TMP_Text>()[1].text = name;
         ChangeMissionColor();
         totalIndex += 1;
+        transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(2000, 800 + totalIndex * 700);
     }
     public void DeleteMission()
     {
@@ -37,6 +38,7 @@ public class MissionControl : MonoBehaviour
         }
         Destroy(content.GetChild(0).gameObject);
         totalIndex = totalIndex - 1;
+        transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(2000, 800 + totalIndex * 700);
 
         // ChangeMissionColor();
         // content.GetChild(0).GetComponent<Image>().color = Color.white;
