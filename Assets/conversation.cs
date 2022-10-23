@@ -14,7 +14,7 @@ public class conversation : MonoBehaviour
     //public Transform parentcontent;
     void Start()
     {
-
+        GameManager.Instance.userText_set=false;
     }
 
     // Update is called once per frame
@@ -47,12 +47,17 @@ public class conversation : MonoBehaviour
     {
         if (input.text.Equals("")) return;
         //GameManager.Instance.checkUserSpeak = true;
+        GameManager.Instance.userText_set=true;
+        Debug.Log("유저 텍스트 set");
+        GameManager.Instance.userText=input.text;
         GameManager.Instance.owner.GetComponent<SaySomething>().say(input.text);
         Debug.Log("say: " + input.text);
         chatmanager.GetComponent<ChatManager>().Chat(true,input.text,"");
+
         //GameObject clone = Instantiate(textChatPrefab, parentcontent);
         //clone.GetComponent<TextMeshProUGUI>().text = $"나: {input.text}";
         input.text = "";
+        
         GUI.FocusControl(null);
     }
 }

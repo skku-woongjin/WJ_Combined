@@ -35,10 +35,14 @@ public class diag : MonoBehaviour
     private void Start()
     {
         Debug.Log("plz");
-        StartCoroutine(MakeRequests());
+        //StartCoroutine(MakeRequests());
     }
 
-    private IEnumerator MakeRequests()
+    public void solar_start(string text){
+        StartCoroutine(MakeRequests(text));
+    }
+
+    private IEnumerator MakeRequests(string question)
     {
         //GET
         // var getRequest = CreateRequest("https://dialogflow.clients6.google.com/v2/projects/dialogflow11-363401/agent/sessions/87106d06-a910-f202-4f14-cbd4ec7d7128:detectIntent");
@@ -53,11 +57,11 @@ public class diag : MonoBehaviour
         dialogflow2 body = new dialogflow2();
         body.query_input = new dfText();
         body.query_input.text = new dfText2();
-        body.query_input.text.text = "지구";
+        body.query_input.text.text = question;
         body.query_input.text.language_code = "ko";
 
         var postRequest = CreateRequest("https://dialogflow.clients6.google.com/v2/projects/dialogflow11-363401/agent/sessions/87106d06-a910-f202-4f14-cbd4ec7d7128:detectIntent", RequestType.POST, body);
-        AttachHeader(postRequest, "Authorization", "Bearer ya29.a0Aa4xrXPWos0gJhbolrIL9vSEZgyQwcc_3ds8Wfs6Rpot4a7v78qaRsDMFiM-jgBZyprYLXfyL8YKF0aHwpsNqp54PD5KW7V6HaupmCDzot6jw1LdtwBzIFK8HtnfmIZDudfmkVC6I5vJnzHCiUyIYCuNZipAA3fiy5pl575CgcDnGrpp3fK0_OGWMoB15KZEXJoviZRO3bQ38HnXp4cxV6_od5tkwoVFcFiy_n1kB4ScuQcaCgYKATASARISFQEjDvL941Nm-XNRBcWJBHwprnRl_Q0246");
+        AttachHeader(postRequest, "Authorization", "Bearer ya29.a0Aa4xrXOc9EWEyZ9i6MBRgwttFopGyEOVSVG8m6GYD5VSJiLgWYaoqQfeDOnlsWesEOeks2tig2nX8yAcsEdGqR3n5Y2mahQ1TiWj_pyM3BzYY_AWo8_Hwo6K7dUAS20p71PhQBHJMFlXbqX-u7P2gSVvUY4FE7k4lMOFO3ES-7wQN3t_TVGAB8rJUnG8p1eRIEWbqt5TYnhJoDALlTPnZ3sA82fIVuS0NeFRSVcGVoz_yMgaCgYKATASARISFQEjDvL94aluNL9bxozrorYm-25m4Q0246");
         yield return postRequest.SendWebRequest();
         Debug.Log(postRequest.downloadHandler.text);
         string split=postRequest.downloadHandler.text.Split("fulfillmentText\": \"", System.StringSplitOptions.RemoveEmptyEntries)[1];
