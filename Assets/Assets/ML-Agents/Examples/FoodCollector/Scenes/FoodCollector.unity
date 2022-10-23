@@ -6854,6 +6854,11 @@ PrefabInstance:
       propertyPath: TTS_Audio
       value: 
       objectReference: {fileID: 415678437}
+    - target: {fileID: 8901700438309024141, guid: 1396e5a2e13878f49aaf76a4b09cad47,
+        type: 3}
+      propertyPath: chatmanager
+      value: 
+      objectReference: {fileID: 2092011055}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1396e5a2e13878f49aaf76a4b09cad47, type: 3}
 --- !u!1001 &669632709
@@ -23159,6 +23164,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3642829561069799675, guid: 7c4abe5d38037a8489a1ce80c16a614f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39e2b13a76adcf54cad7b4f4dbb7748e, type: 2}
     - target: {fileID: 7126766460012079494, guid: 7c4abe5d38037a8489a1ce80c16a614f,
         type: 3}
       propertyPath: locID
@@ -26310,6 +26320,11 @@ PrefabInstance:
       propertyPath: TTS_Audio
       value: 
       objectReference: {fileID: 415678437}
+    - target: {fileID: 8901700438309024141, guid: 1396e5a2e13878f49aaf76a4b09cad47,
+        type: 3}
+      propertyPath: chatmanager
+      value: 
+      objectReference: {fileID: 2092011055}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1396e5a2e13878f49aaf76a4b09cad47, type: 3}
 --- !u!1 &8980951268422049540
