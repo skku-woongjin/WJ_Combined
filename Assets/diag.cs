@@ -63,16 +63,32 @@ public class diag : MonoBehaviour
         body.query_input.text.language_code = "ko";
 
         var postRequest = CreateRequest("https://dialogflow.clients6.google.com/v2/projects/dialogflow11-363401/agent/sessions/87106d06-a910-f202-4f14-cbd4ec7d7128:detectIntent", RequestType.POST, body);
-        AttachHeader(postRequest, "Authorization", "Bearer ya29.a0Aa4xrXMhGyN_RiVjLOH0OPB1Kte_58qGQ6z5eD648rzyYym0jp-aQGv1VhfvUl1TPiE4mjWCOmih_INuI0gNrqvnrB6kfeq8fMWlqWw7KF9oRguN0E25zuU2xNhol2XpqCqix3aczy2xSj7IX4tb8xh7lK3FDRxVNzfIf8fnWJk1TlRosTbYBh6baA4M0NPEtpBImaNqT3kaTwW754nkZGCH8iO3oHImRU3TS__Da5jhKIEaCgYKATASARISFQEjDvL9Z-ub2mCUDwIhVjQX_PdZiA0246");
+        AttachHeader(postRequest, "Authorization", "Bearer ya29.a0Aa4xrXMplEiblT_ZyJcQ-fqiXf8ksxF90874WJVsTIHp9UeIsT0Z868SIUBGvSwfqWC_ULjbw91HlbbU877VUp2WYO4jl8EMU5A7FpkU5Qu9w1br3j4Pdyq_7T3wwYpDbWN_HdxT24a4mizwHDeX04mHiPJQxR_R6B97MrUUSP655PEZwRY4lfBzna3Z1L_7GM6y7TcZmvJP3flkHay3SGgij1p2PaXQgXiIvl67QVSffSoaCgYKATASARISFQEjDvL9aXQxULO-LOj-g8TBMKPrpw0246");
         yield return postRequest.SendWebRequest();
         Debug.Log(postRequest.downloadHandler.text);
         string split = postRequest.downloadHandler.text.Split("fulfillmentText\": \"", System.StringSplitOptions.RemoveEmptyEntries)[1];
         split = split.Split("\",", System.StringSplitOptions.RemoveEmptyEntries)[0];
         Debug.Log(split);
         // var deserializedPostData = JsonUtility.FromJson<postResult>(postRequest.downloadHandler.text);
-        GameManager.Instance.Solar_response=split;
-        talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(split);
-        GameManager.Instance.userText_set=false;
+        GameManager.Instance.Solar_response = split;
+        if (split.Split("*", System.StringSplitOptions.RemoveEmptyEntries).Length > 1)
+        {
+            StartCoroutine(sayTwo(split.Split("*", System.StringSplitOptions.RemoveEmptyEntries)[0], split.Split("*", System.StringSplitOptions.RemoveEmptyEntries)[1]));
+        }
+        else
+        {
+            split = split.Split("*", System.StringSplitOptions.RemoveEmptyEntries)[0];
+            talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(split);
+        }
+
+        GameManager.Instance.userText_set = false;
+    }
+
+    IEnumerator sayTwo(string s1, string s2)
+    {
+        talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(s1);
+        yield return new WaitForSecondsRealtime(6f);
+        talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(s2);
     }
 
     private UnityWebRequest CreateRequest(string path, RequestType type = RequestType.GET, dialogflow2 data = null)

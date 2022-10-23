@@ -23,11 +23,15 @@ public class SaySomething : MonoBehaviour
             GetComponentInChildren<Animator>().SetFloat("ConvSpeed", Random.Range(0.2f, 1f));
         }
     }
+
+    IEnumerator fadeCor = null;
     public void say(string line)
     {
         //Debug.Log(bubbleImg + "dsav");
-        bubble.GetComponentInChildren<Image>().color = Color.white;
-        StopAllCoroutines();
+        bubble.GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0.9f);
+        if (fadeCor != null)
+            StopCoroutine(fadeCor);
+        fadeCor = fadeout();
         bubble.SetActive(false);
         if (!ispet && censor)
             transform.parent.GetComponent<ConvGroup>().totalChat += 1;
@@ -49,21 +53,36 @@ public class SaySomething : MonoBehaviour
                 {
                     transform.parent.GetComponent<ConvGroup>().changeSphere();
                 }
+                StartCoroutine(rebuild(bubble.GetComponent<RectTransform>()));
                 bubble.SetActive(true);
-                StartCoroutine("fadeout");
+                StartCoroutine(fadeCor);
             }, line));
         }
         else
         {
             bubble.GetComponentInChildren<TMP_Text>().text = line;
+            StartCoroutine(rebuild(bubble.GetComponent<RectTransform>()));
             bubble.SetActive(true);
-
-
-            StartCoroutine("fadeout");
+            StartCoroutine(fadeCor);
 
         }
 
+        LayoutRebuilder.ForceRebuildLayoutImmediate(bubble.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>());
+        Canvas.ForceUpdateCanvases();
+        bubble.GetComponent<RectTransform>().GetChild(0).GetComponent<LayoutGroup>().enabled = false;
+        bubble.GetComponent<RectTransform>().GetChild(0).GetComponent<LayoutGroup>().enabled = true;
 
+
+    }
+
+    IEnumerator rebuild(RectTransform obj)
+    {
+        yield return new WaitForEndOfFrame();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(obj.GetChild(0).GetComponent<RectTransform>());
+        Canvas.ForceUpdateCanvases();
+        obj.GetChild(0).GetComponent<LayoutGroup>().enabled = false;
+        yield return new WaitForEndOfFrame();
+        obj.GetChild(0).GetComponent<LayoutGroup>().enabled = true;
     }
 
     private void Update()

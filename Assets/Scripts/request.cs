@@ -30,6 +30,7 @@ public class request : MonoBehaviour
     //public string[] actionKeyword = { "jump", "fly", "walk", "go", "play", "find" };
     private string[] locationKeyword = { "교실", "복도", "쥐라기 파크", "도서관", "갤러리", "옥상", "태양계" };
     public GameObject KeywordUI;
+    public int questType;
     void Start()
     {
         questIsGenerated = false;
@@ -75,10 +76,31 @@ public class request : MonoBehaviour
         questIsGenerated = true;
 
     }
+    public bool getLocationEqual(){
+        return locationQuest == currentLocation.text;
+    }
+    public bool getQuestGen(){
+        return questIsGenerated == true;
+    }
     public void CheckQuestSuccess()
     {
-        if (questIsGenerated == true && locationQuest == currentLocation.text)
+        if (questIsGenerated == true && locationQuest == currentLocation.text && GameManager.Instance.checkJump)
         {
+            GameManager.Instance.checkJump = false;
+            GameManager.Instance.curQuest = -1;
+            catCanJump.Play("jump");
+            GameManager.Instance.idleAgent.GetComponent<SaySomething>().say("퀘스트 완료!");
+            GameManager.Instance.missionManager.DeleteMission();
+            GameManager.Instance.coinVal = GameManager.Instance.coinVal + 1;
+            GameManager.Instance.Coin.text = (GameManager.Instance.coinVal).ToString();
+            StartCoroutine(GameManager.Instance.idleAgent.GetComponent<SaySomething>().petFadeOut());
+
+            questIsGenerated = false;
+            GameManager.Instance.idleAgent.endlead();
+        }
+        else if (questIsGenerated == true && locationQuest == currentLocation.text && GameManager.Instance.checkReach)
+        {
+            GameManager.Instance.checkJump = false;
             GameManager.Instance.curQuest = -1;
             catCanJump.Play("jump");
             GameManager.Instance.idleAgent.GetComponent<SaySomething>().say("퀘스트 완료!");
@@ -169,6 +191,7 @@ public class request : MonoBehaviour
             Debug.Log(res);
             string quest = res.Split('@')[0];
             string keywords = res.Split('@')[1];
+            Debug.Log(keyWords);
 
             foreach (string word in keywords.Split('*'))
             {
@@ -182,13 +205,31 @@ public class request : MonoBehaviour
 
                 }
             }
-
+            GameManager.Instance.checkJump = false;
+            GameManager.Instance.checkReach = false;
+            if(quest.Contains("점프")){
+                questType = 1;
+                StartCoroutine(questJump());
+            }
+            else if(quest.Contains("올라타")){
+                questType = 2;
+                StartCoroutine(questReach());
+            }
             GameManager.Instance.questGiver.say(quest);
             GameManager.Instance.missionManager.AddMission(quest);
             GameManager.Instance.QuestUI.SetActive(true);
             keyWords.text = "키워드: " + keywords.Replace("*", ",").Replace("0", "").Replace("None", "").Replace("n개", "").Replace("n번", "").Replace("n회", "");
             //TODO - 좋아 싫어 띄우기 
             GameManager.Instance.idleAgent.Invoke("showOkNoQuest", 0.5f);
+        }
+        IEnumerator questReach(){
+            yield return new WaitUntil(()=> GameManager.Instance.checkReach);
+            CheckQuestSuccess();
+        }
+        IEnumerator questJump()
+        {
+            yield return new WaitUntil(() => GameManager.Instance.checkJump);
+            CheckQuestSuccess();
         }
 
 
