@@ -62,7 +62,7 @@ public class diag : MonoBehaviour
         body.query_input.text.language_code = "ko";
 
         var postRequest = CreateRequest("https://dialogflow.clients6.google.com/v2/projects/dialogflow11-363401/agent/sessions/87106d06-a910-f202-4f14-cbd4ec7d7128:detectIntent", RequestType.POST, body);
-        AttachHeader(postRequest, "Authorization", "Bearer ya29.a0Aa4xrXOMQSzYrp2NhgHPGiJC1had3MG3Qs0rR53cBhlxIacUtF-FJGLycr3FziWi2uEY8VEm-BtTo1Dmul9F5q4xIpf8htaubBfqDuaxoRXgZ-i5BVP6J8jU1IYGC7iCr9LXQwnVUk4-5ntnLXfzuLjD6rArrN-8k5KEfTL5g6O39YhVYxoI3AdwX1V4RfCpcBNyJ_zAN3_W_k7gSjdwbO73h3Zg6YSdsgtC0nvlpPcvcUwaCgYKATASARISFQEjDvL9cA1_HGYuOEMA81wOutVYTw0246");
+        AttachHeader(postRequest, "Authorization", "Bearer ya29.a0Aa4xrXMhGyN_RiVjLOH0OPB1Kte_58qGQ6z5eD648rzyYym0jp-aQGv1VhfvUl1TPiE4mjWCOmih_INuI0gNrqvnrB6kfeq8fMWlqWw7KF9oRguN0E25zuU2xNhol2XpqCqix3aczy2xSj7IX4tb8xh7lK3FDRxVNzfIf8fnWJk1TlRosTbYBh6baA4M0NPEtpBImaNqT3kaTwW754nkZGCH8iO3oHImRU3TS__Da5jhKIEaCgYKATASARISFQEjDvL9Z-ub2mCUDwIhVjQX_PdZiA0246");
         yield return postRequest.SendWebRequest();
         Debug.Log(postRequest.downloadHandler.text);
         string split = postRequest.downloadHandler.text.Split("fulfillmentText\": \"", System.StringSplitOptions.RemoveEmptyEntries)[1];
