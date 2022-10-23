@@ -31,7 +31,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2289305822298165154}
   - {fileID: 7658329654855474727}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -87,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 0
-    m_Right: -53
+    m_Right: 51
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 2
@@ -130,13 +129,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1215173094891815861}
-  m_RootOrder: 0
+  m_Father: {fileID: 7658329654855474727}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 83.5, y: 11}
-  m_SizeDelta: {x: 26.0143, y: 15.7125}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 30.8, y: 18.505}
+  m_SizeDelta: {x: 26.014297, y: 15.7125}
   m_Pivot: {x: 1.1840105, y: 1.69208}
 --- !u!222 &6450983050374875042
 CanvasRenderer:
@@ -232,7 +231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 142.51, y: 0}
+  m_AnchoredPosition: {x: 165.01, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &4885254989934418170
@@ -263,7 +262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: sssssssssssssssssss
+  m_text: "\uC544\uC544\uC774\uC774\u314F\uC5B4\uC544\u3153\uC544\uC544\uC544"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0b4776c5688e8cb40a5a7ff60eb0c796, type: 2}
   m_sharedMaterial: {fileID: 5702596394128323099, guid: 0b4776c5688e8cb40a5a7ff60eb0c796,
@@ -381,12 +380,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2677412637361029606}
+  - {fileID: 2289305822298165154}
   m_Father: {fileID: 1215173094891815861}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 53, y: 0}
+  m_AnchoredPosition: {x: 169, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &8767569528122732470
