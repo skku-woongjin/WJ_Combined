@@ -55,6 +55,10 @@ public class ChatManager : MonoBehaviour
         {
             text = text.Insert(20, "\n");
         }
+        if (text.Length > 31)
+        {
+            text = text.Insert(30, "\n");
+        }
         Area.TextRect.GetComponent<TMP_Text>().text = text;
         // Fit(Area.BoxRect);
 
