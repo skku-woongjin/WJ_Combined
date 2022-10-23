@@ -48,6 +48,14 @@ public class ConvGroup : MonoBehaviour
 
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+
+        }
+    }
     public void changeSphere()
     {
         hatePercent = (hateChat * 100 / totalChat);
@@ -79,10 +87,12 @@ public class ConvGroup : MonoBehaviour
         if (isbad)
         {
             Sphere.GetComponent<Renderer>().material = UDangTangMat;
+            GetComponent<Collider>().isTrigger = false;
         }
         else
         {
             Sphere.GetComponent<Renderer>().material = CommonMat;
+            GetComponent<Collider>().isTrigger = true;
         }
     }
     public void hideSphere()
@@ -97,6 +107,7 @@ public class ConvGroup : MonoBehaviour
 
     }
 
+
     public void join()
     {
         GameManager.Instance.hatePercentUI.SetActive(true);
@@ -107,7 +118,6 @@ public class ConvGroup : MonoBehaviour
     {
         if (data_Dialog != null)
         {
-
             for (int i = 0; i < data_Dialog.Count; i++)
             {
                 users[Int32.Parse(data_Dialog[i]["user"].ToString())].say(data_Dialog[i]["line"].ToString());
