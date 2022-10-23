@@ -127,14 +127,14 @@ public class RecommendAgent : Agent
         if (curdest > -1)
             candidates.GetChild(curdest).GetComponent<FlagColor>().yellow();
         curdest = -1;
-        foreach (Transform child in trails)
-        {
-            Destroy(child.gameObject);
-        }
+        // foreach (Transform child in trails)
+        // {
+        //     Destroy(child.gameObject);
+        // }
 
-        destQ.Clear();
-        Array.Clear(flagVisited, 0, flagVisited.Length);
-        destQfilled = 0;
+        // destQ.Clear();
+        // Array.Clear(flagVisited, 0, flagVisited.Length);
+        // destQfilled = 0;
         going = false;
         curep = 0;
 
