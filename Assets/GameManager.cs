@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public PlayAnims dogPlay;
     public bool userText_set;
     public string userText;
+    public bool checkReach;
+    public bool checkJump;
     public static GameManager Instance
     {
         get
