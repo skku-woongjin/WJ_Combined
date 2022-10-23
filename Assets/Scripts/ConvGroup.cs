@@ -66,7 +66,7 @@ public class ConvGroup : MonoBehaviour
         {
             hateBar.color = Color.blue;
         }
-        else if (hatePercent < 40)
+        else if (hatePercent < 30)
         {
             hateBar.color = Color.yellow;
         }
@@ -75,7 +75,7 @@ public class ConvGroup : MonoBehaviour
             hateBar.color = Color.red;
         }
 
-        if (hatePercent >= 60)
+        if (hatePercent >= 40)
         {
             isbad = true;
         }
@@ -120,6 +120,9 @@ public class ConvGroup : MonoBehaviour
         {
             for (int i = 0; i < data_Dialog.Count; i++)
             {
+                if(i==3 || i ==4){
+                    hateChat ++;
+                }
                 users[Int32.Parse(data_Dialog[i]["user"].ToString())].say(data_Dialog[i]["line"].ToString());
                 yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(2, 3.5f));
             }
