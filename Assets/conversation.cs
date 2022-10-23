@@ -9,6 +9,7 @@ public class conversation : MonoBehaviour
     // Start is called before the first frame update
     public TMP_InputField input;
     public GameObject chatmanager;
+    public GameObject chat_log;
     //public GameObject textChatPrefab;
     //public Transform parentcontent;
     void Start()
@@ -19,6 +20,17 @@ public class conversation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public void sudden_chat_log(){
+        
+        if(chat_log.activeSelf){
+            chat_log.SetActive(false);
+        }
+        else{
+             chat_log.SetActive(true);
+            }
         
     }
 
