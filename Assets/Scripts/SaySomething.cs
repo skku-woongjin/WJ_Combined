@@ -23,11 +23,15 @@ public class SaySomething : MonoBehaviour
             GetComponentInChildren<Animator>().SetFloat("ConvSpeed", Random.Range(0.2f, 1f));
         }
     }
+
+    IEnumerator fadeCor = null;
     public void say(string line)
     {
         //Debug.Log(bubbleImg + "dsav");
-        bubble.GetComponentInChildren<Image>().color = Color.white;
-        StopAllCoroutines();
+        bubble.GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0.9f);
+        if (fadeCor != null)
+            StopCoroutine(fadeCor);
+        fadeCor = fadeout();
         bubble.SetActive(false);
         if (!ispet && censor)
             transform.parent.GetComponent<ConvGroup>().totalChat += 1;
@@ -50,7 +54,7 @@ public class SaySomething : MonoBehaviour
                     transform.parent.GetComponent<ConvGroup>().changeSphere();
                 }
                 bubble.SetActive(true);
-                StartCoroutine("fadeout");
+                StartCoroutine(fadeCor);
             }, line));
         }
         else
@@ -58,12 +62,17 @@ public class SaySomething : MonoBehaviour
             bubble.GetComponentInChildren<TMP_Text>().text = line;
             bubble.SetActive(true);
 
-
-            StartCoroutine("fadeout");
-
         }
 
+        StartCoroutine(fadeCor);
+        StartCoroutine(rebuild(bubble.GetComponent<RectTransform>()));
+    }
 
+    IEnumerator rebuild(RectTransform obj)
+    {
+        yield return new WaitForEndOfFrame();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(obj.GetChild(0).GetComponent<RectTransform>());
+        Canvas.ForceUpdateCanvases();
     }
 
     private void Update()

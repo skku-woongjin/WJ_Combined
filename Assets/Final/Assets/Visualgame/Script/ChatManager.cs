@@ -106,6 +106,7 @@ public class ChatManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         LayoutRebuilder.ForceRebuildLayoutImmediate(obj);
+
     }
 
 }
