@@ -23,17 +23,20 @@ public class QuestNpcArea : MonoBehaviour
         yield return new WaitForSeconds(3);
         check3Second = true;
     }
+    private void questByQnpc(){
+        GameManager.Instance.questGiver = transform.parent.GetComponent<SaySomething>();
+        GameManager.Instance.recAgent.recommend();
+        StartCoroutine(checkWait());
+    } 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && check3Second && checkIN == false)
         {
+
             checkIN = true;
             check3Second = false;
-            transform.parent.GetComponent<SaySomething>().say("퀘스트가 나올거야!");
-            GameManager.Instance.questGiver = transform.parent.GetComponent<SaySomething>();
-            GameManager.Instance.recAgent.recommend();
+            transform.parent.GetComponent<SaySomething>().say("안녕! 나는 퀘스트 봇이야");
             transform.parent.rotation = Quaternion.LookRotation(other.transform.GetComponentInChildren<Camera>().transform.position - transform.parent.position);
-            StartCoroutine(checkWait());
             
             
         }
