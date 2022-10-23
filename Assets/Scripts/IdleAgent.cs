@@ -382,25 +382,25 @@ public class IdleAgent : Agent
     public Transform interestingObj;
     public void interest()
     {
-        if (state == States.enterGroup) return;
-        interested = true;
-        if (!miauing)
-        {
-            miauCouroutine = playInteSound();
-            StartCoroutine(miauCouroutine);
-        }
-        if (state <= States.inte)
-        {
-            state = States.inte;
-            setMat();
-        }
-        if (nav.enabled && interestingObj != null)
-        {
-            nav.SetDestination(interestingObj.position);
-            nav.stoppingDistance = 0.5f;
-            state = States.inte;
-            setMat();
-        }
+        // if (state == States.enterGroup) return;
+        // interested = true;
+        // if (!miauing)
+        // {
+        //     miauCouroutine = playInteSound();
+        //     StartCoroutine(miauCouroutine);
+        // }
+        // if (state <= States.inte)
+        // {
+        //     state = States.inte;
+        //     setMat();
+        // }
+        // if (nav.enabled && interestingObj != null)
+        // {
+        //     nav.SetDestination(interestingObj.position);
+        //     nav.stoppingDistance = 0.5f;
+        //     state = States.inte;
+        //     setMat();
+        // }
     }
     public void endInterest()
     {

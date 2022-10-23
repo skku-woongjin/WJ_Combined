@@ -57,7 +57,7 @@ public class ChatManager : MonoBehaviour
     
         //사용자가 질문할 때
         
-        Fit(Area.BoxRect);
+        
 
 
         // 두 줄 이상이면 크기를 줄여가면서, 한 줄이 아래로 내려가면 바로 전 크기를 대입 
