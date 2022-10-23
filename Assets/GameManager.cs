@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text Coin;
     public int coinVal;
     public PlayAnims dogPlay;
+    public bool userText_set;
+    public string userText;
     public static GameManager Instance
     {
         get
