@@ -8,6 +8,7 @@ public class catAnim : MonoBehaviour
     public Rigidbody rb;
     public Transform tr;
     public Animator anim;
+    public Animator animDog;
 
     Quaternion lastRot;
     NavMeshAgent nav;
@@ -34,6 +35,11 @@ public class catAnim : MonoBehaviour
 
         anim.SetBool("Stopping", stopping);
         anim.SetBool("Say", tr.GetComponent<IdleAgent>().state == IdleAgent.States.say);
+        if(tr.GetComponent<IdleAgent>().state == IdleAgent.States.say)
+        {
+            GameManager.Instance.dogPlay.walkStop();
+        }
+        else GameManager.Instance.dogPlay.startwalk();
         // Debug.Log(anim.GetFloat("turnSpd"));
 
         lastRot = tr.rotation;
