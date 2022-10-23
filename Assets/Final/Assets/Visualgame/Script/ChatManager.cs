@@ -47,13 +47,13 @@ public class ChatManager : MonoBehaviour
         AreaScript Area = Instantiate(isSend ? YellowArea : WhiteArea, ContentRect.transform).GetComponent<AreaScript>();
         // Area.transform.SetParent(ContentRect.transform, false);
         // Area.BoxRect.sizeDelta = new Vector2(300, Area.BoxRect.sizeDelta.y);
-        if (text.Length > 15)
+        if (text.Length > 11)
         {
-            text = text.Insert(14, "\n");
+            text = text.Insert(10, "\n");
         }
-        if (text.Length > 30)
+        if (text.Length > 21)
         {
-            text = text.Insert(29, "\n");
+            text = text.Insert(20, "\n");
         }
         Area.TextRect.GetComponent<TMP_Text>().text = text;
         // Fit(Area.BoxRect);

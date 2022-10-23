@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366753, g: 0.48427093, b: 0.5645238, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4630,8 +4630,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00019932, y: 149.41}
-  m_SizeDelta: {x: 229.67, y: 52.974}
+  m_AnchoredPosition: {x: 0.0000076293945, y: 188.49}
+  m_SizeDelta: {x: 253.75, y: 52.974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &337778790
 MonoBehaviour:
@@ -10404,7 +10404,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
@@ -11302,6 +11302,7 @@ MonoBehaviour:
   hateRateText: {fileID: 255618876}
   hatePercentUI: {fileID: 1046048852}
   locationUI: {fileID: 718195623}
+  Solar_response: 
   destParent: {fileID: 1749301591}
   destinations:
   - {fileID: 1343017586}
@@ -11651,6 +11652,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936689021}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &954973870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8901700438309024138, guid: 1396e5a2e13878f49aaf76a4b09cad47,
+    type: 3}
+  m_PrefabInstance: {fileID: 8901700439319919696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &965405793
 GameObject:
   m_ObjectHideFlags: 0
@@ -14946,7 +14953,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1991333322}
   m_HandleRect: {fileID: 1991333321}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16345,7 +16352,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.000015258789}
-  m_SizeDelta: {x: -1.9, y: 0}
+  m_SizeDelta: {x: -1.9, y: 20}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1345632833
 MonoBehaviour:
@@ -18552,7 +18559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1648220018
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18573,8 +18580,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -522.16565, y: -201.07411}
-  m_SizeDelta: {x: 229.6687, y: 245.8517}
+  m_AnchoredPosition: {x: -510.123, y: -161.99998}
+  m_SizeDelta: {x: 253.754, y: 324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1648220019
 MonoBehaviour:
@@ -22898,7 +22905,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26059,6 +26066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84959026e510742f79f9e888940066ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  talking_area: {fileID: 954973870}
 --- !u!4 &2687658931700304309 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2687658931380447951, guid: 7c4abe5d38037a8489a1ce80c16a614f,
@@ -29209,6 +29217,11 @@ PrefabInstance:
       propertyPath: Solar
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8901700438309024141, guid: 1396e5a2e13878f49aaf76a4b09cad47,
+        type: 3}
+      propertyPath: chat_log
+      value: 
+      objectReference: {fileID: 1648220017}
     - target: {fileID: 8901700438309024141, guid: 1396e5a2e13878f49aaf76a4b09cad47,
         type: 3}
       propertyPath: TTS_Audio

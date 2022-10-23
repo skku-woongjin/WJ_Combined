@@ -79,7 +79,7 @@ public class SaySomething : MonoBehaviour
         if (!ispet)
         {
             Color c;
-            yield return new WaitForSecondsRealtime(2f);
+            yield return new WaitForSecondsRealtime(4f);
             while (bubbleImg.color.a > 0.01f)
             {
                 c = bubbleImg.color;

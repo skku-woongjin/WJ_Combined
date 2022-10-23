@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text hateRateText;
     public GameObject hatePercentUI;
     public TMP_Text locationUI;
+    public string Solar_response;
 
     public Transform destParent;
 
