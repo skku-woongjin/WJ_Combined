@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5990901973960844203}
   - component: {fileID: 5990901973960844202}
   - component: {fileID: 5088138262144058536}
-  - component: {fileID: 2614841577573430256}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: trail
@@ -97,33 +96,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3f45d412b664a009402e7b3e8cb087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Shape:
-    m_ScanResultsByLOD:
-    - LocalPoints:
-      - {x: 0, y: 0, z: 0}
-    m_LocalPoints:
-    - {x: 0, y: 0, z: 0}
-    m_WorldPoints: []
-    m_MergeDisconnected: 1
-    m_Flatten: 1
-    m_MaxLOD: 0
-    m_SelectedLOD: 0
-    m_ScanLOD: 0
-    m_GizmoLOD: 0
-    m_Projection: 0
-    m_PointCount: 1
-    m_DrawGrid: 0
   energy: 1
---- !u!135 &2614841577573430256
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5990901973960844247}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
