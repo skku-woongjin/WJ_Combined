@@ -8,6 +8,7 @@ public class QuestNpcArea : MonoBehaviour
 {
     bool check3Second = true;
     bool checkIN = false;
+    public GameObject questMakeBtn;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class QuestNpcArea : MonoBehaviour
         yield return new WaitForSeconds(3);
         check3Second = true;
     }
-    private void questByQnpc(){
+    public void questByQnpc(){
         GameManager.Instance.questGiver = transform.parent.GetComponent<SaySomething>();
         GameManager.Instance.recAgent.recommend();
         StartCoroutine(checkWait());
@@ -32,7 +33,7 @@ public class QuestNpcArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && check3Second && checkIN == false)
         {
-
+            questMakeBtn.SetActive(true);
             checkIN = true;
             check3Second = false;
             transform.parent.GetComponent<SaySomething>().say("안녕! 나는 퀘스트 봇이야");
@@ -46,6 +47,7 @@ public class QuestNpcArea : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && check3Second && checkIN == true)
 
         {
+            questMakeBtn.SetActive(false);
             checkIN = false;
             check3Second = false;
             //transform.parent.GetComponent<SaySomething>().say("퀘스트 성공!");
