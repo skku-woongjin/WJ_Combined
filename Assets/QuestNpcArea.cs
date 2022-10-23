@@ -36,7 +36,7 @@ public class QuestNpcArea : MonoBehaviour
             questMakeBtn.SetActive(true);
             checkIN = true;
             check3Second = false;
-            transform.parent.GetComponent<SaySomething>().say("안녕! 나는 퀘스트 봇이야");
+            transform.parent.GetComponent<SaySomething>().say("안녕! 난 퀘스트 봇!");
             transform.parent.rotation = Quaternion.LookRotation(other.transform.GetComponentInChildren<Camera>().transform.position - transform.parent.position);
             
             
