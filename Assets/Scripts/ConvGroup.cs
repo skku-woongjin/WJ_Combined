@@ -62,11 +62,11 @@ public class ConvGroup : MonoBehaviour
         //Debug.Log(hateChat);
         GameManager.Instance.hateRateText.text = hatePercent.ToString() + "%";
         hateBar.fillAmount = (hatePercent + 0.0f) / 100;
-        if (hatePercent < 30)
+        if (hatePercent < 20)
         {
             hateBar.color = Color.blue;
         }
-        else if (hatePercent < 60)
+        else if (hatePercent < 40)
         {
             hateBar.color = Color.yellow;
         }
