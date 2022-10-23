@@ -10,6 +10,15 @@ public class PlayAnims : MonoBehaviour
 	void Start()
 	{
 		if (mAnimator == null) mAnimator = gameObject.GetComponent<Animator>();
+        mAnimator.Play("SlowWalk");
+	}
+	public void startwalk(){
+        if (mAnimator == null) mAnimator = gameObject.GetComponent<Animator>();
+        mAnimator.Play("SlowWalk");
+	}
+	public void walkStop(){
+        if (mAnimator == null) mAnimator = gameObject.GetComponent<Animator>();
+        mAnimator.Play("StIdle");
 	}
 
 	public void OnButtonClick( int aIndex )
