@@ -7448,6 +7448,11 @@ PrefabInstance:
       propertyPath: TTS_Audio
       value: 
       objectReference: {fileID: 415678437}
+    - target: {fileID: 8901700438309024141, guid: 1396e5a2e13878f49aaf76a4b09cad47,
+        type: 3}
+      propertyPath: chatmanager
+      value: 
+      objectReference: {fileID: 2092011055}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1396e5a2e13878f49aaf76a4b09cad47, type: 3}
 --- !u!1001 &669632709
@@ -25162,5 +25167,10 @@ PrefabInstance:
       propertyPath: TTS_Audio
       value: 
       objectReference: {fileID: 415678437}
+    - target: {fileID: 8901700438309024141, guid: 1396e5a2e13878f49aaf76a4b09cad47,
+        type: 3}
+      propertyPath: chatmanager
+      value: 
+      objectReference: {fileID: 2092011055}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1396e5a2e13878f49aaf76a4b09cad47, type: 3}
