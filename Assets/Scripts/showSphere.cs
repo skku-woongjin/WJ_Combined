@@ -18,11 +18,19 @@ public class showSphere : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.CompareTag("Player"))
         {
-            Sphere.SetActive(false);
+            if (!transform.parent.GetComponent<ConvGroup>().isbad)
+            {
+                GameManager.Instance.curGroup = transform.parent.GetComponent<ConvGroup>();
+                GameManager.Instance.owner.GetComponent<JoinGroup>().join();
+            }
+            //Sphere.SetActive(false);
         }
     }
+
+
     private void OnTriggerExit(Collider other)
     {
         if (GameManager.Instance.ingroup)

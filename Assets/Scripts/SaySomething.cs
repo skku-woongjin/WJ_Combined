@@ -53,6 +53,7 @@ public class SaySomething : MonoBehaviour
                 {
                     transform.parent.GetComponent<ConvGroup>().changeSphere();
                 }
+                StartCoroutine(rebuild(bubble.GetComponent<RectTransform>()));
                 bubble.SetActive(true);
                 StartCoroutine(fadeCor);
             }, line));
@@ -60,12 +61,18 @@ public class SaySomething : MonoBehaviour
         else
         {
             bubble.GetComponentInChildren<TMP_Text>().text = line;
+            StartCoroutine(rebuild(bubble.GetComponent<RectTransform>()));
             bubble.SetActive(true);
+            StartCoroutine(fadeCor);
 
         }
 
-        StartCoroutine(fadeCor);
-        StartCoroutine(rebuild(bubble.GetComponent<RectTransform>()));
+        LayoutRebuilder.ForceRebuildLayoutImmediate(bubble.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>());
+        Canvas.ForceUpdateCanvases();
+        bubble.GetComponent<RectTransform>().GetChild(0).GetComponent<LayoutGroup>().enabled = false;
+        bubble.GetComponent<RectTransform>().GetChild(0).GetComponent<LayoutGroup>().enabled = true;
+
+
     }
 
     IEnumerator rebuild(RectTransform obj)
@@ -73,6 +80,9 @@ public class SaySomething : MonoBehaviour
         yield return new WaitForEndOfFrame();
         LayoutRebuilder.ForceRebuildLayoutImmediate(obj.GetChild(0).GetComponent<RectTransform>());
         Canvas.ForceUpdateCanvases();
+        obj.GetChild(0).GetComponent<LayoutGroup>().enabled = false;
+        yield return new WaitForEndOfFrame();
+        obj.GetChild(0).GetComponent<LayoutGroup>().enabled = true;
     }
 
     private void Update()

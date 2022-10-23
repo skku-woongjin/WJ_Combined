@@ -34,7 +34,7 @@ public class JoinGroup : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(removY(-transform.position + t.position));
         Physics.IgnoreCollision(GetComponent<Collider>(), t.parent.GetComponent<Collider>(), true);
         GetComponent<Rigidbody>().AddForce(transform.forward * 3000, ForceMode.Impulse);
-        t.parent.GetComponent<ConvGroup>().hideSphere();
+        //t.parent.GetComponent<ConvGroup>().hideSphere();
         t.parent.GetComponent<ConvGroup>().join();
         inGroupUser1.gameObject.layer = 5;
         inGroupUser2.gameObject.layer = 5;

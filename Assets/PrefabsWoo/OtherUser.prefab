@@ -92,6 +92,8 @@ MonoBehaviour:
   bubble: {fileID: 6146456023871855573}
   censor: 0
   ispet: 0
+  isTTS: 0
+  TTS_Audio: {fileID: 0}
 --- !u!1001 &4727934860166982394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99,6 +101,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4336880531726742077}
     m_Modifications:
+    - target: {fileID: 1499811395305209321, guid: dc2d543a37a9a47039509721bc18e2eb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499811395305209321, guid: dc2d543a37a9a47039509721bc18e2eb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499811395305209321, guid: dc2d543a37a9a47039509721bc18e2eb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.78
+      objectReference: {fileID: 0}
     - target: {fileID: 1499811395703763233, guid: dc2d543a37a9a47039509721bc18e2eb,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -228,6 +245,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499811395914239791, guid: dc2d543a37a9a47039509721bc18e2eb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499811395914239791, guid: dc2d543a37a9a47039509721bc18e2eb,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499811395914239791, guid: dc2d543a37a9a47039509721bc18e2eb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499811395914239791, guid: dc2d543a37a9a47039509721bc18e2eb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499811395914239791, guid: dc2d543a37a9a47039509721bc18e2eb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.605
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499811395914239791, guid: dc2d543a37a9a47039509721bc18e2eb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.605
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975441272885495030, guid: dc2d543a37a9a47039509721bc18e2eb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc2d543a37a9a47039509721bc18e2eb, type: 3}
