@@ -10,6 +10,7 @@ public class OwnerController : MonoBehaviour
     public float turnSpd;
     public Transform bound;
     public Transform dest;
+    public request req;
 
     public Rigidbody rb;
     Vector3 dirVec;
@@ -130,6 +131,9 @@ public class OwnerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                if(req.getLocationEqual() && req.getQuestGen() && req.questType == 1){
+                    GameManager.Instance.checkJump = true;
+                }
                 rb.AddForce(bound.up * speed * 1000, ForceMode.Impulse);
             }
             if (Input.GetKeyDown(KeyCode.Z))
