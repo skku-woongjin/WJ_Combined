@@ -25,6 +25,7 @@ public class QuestNpcArea : MonoBehaviour
         check3Second = true;
     }
     public void questByQnpc(){
+        questMakeBtn.SetActive(false);
         GameManager.Instance.questGiver = transform.parent.GetComponent<SaySomething>();
         GameManager.Instance.recAgent.recommend();
         StartCoroutine(checkWait());
@@ -47,7 +48,7 @@ public class QuestNpcArea : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && check3Second && checkIN == true)
 
         {
-            questMakeBtn.SetActive(false);
+            questMakeBtn.SetActive(true);
             checkIN = false;
             check3Second = false;
             //transform.parent.GetComponent<SaySomething>().say("퀘스트 성공!");

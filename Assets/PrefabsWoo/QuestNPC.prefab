@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 3018491933052813153}
   - component: {fileID: 3018491933052813154}
   - component: {fileID: 3018491933052813155}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.04, y: 1.83}
+  m_AnchoredPosition: {x: -0.43, y: 2.12}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3018491933052813153
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 3018491933283442866}
   - component: {fileID: 3018491933283442867}
   - component: {fileID: 3018491933283442876}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3018491934057175181}
   - component: {fileID: 3018491934057175180}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Small Square Round YELLOWGREEN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 3018491934604688857}
   - component: {fileID: 3018491934604688863}
   - component: {fileID: 3018491934604688856}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
