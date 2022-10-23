@@ -86,6 +86,7 @@ public class request : MonoBehaviour
     {
         if (questIsGenerated == true && locationQuest == currentLocation.text && GameManager.Instance.checkJump)
         {
+            GameManager.Instance.checkJump = false;
             GameManager.Instance.curQuest = -1;
             catCanJump.Play("jump");
             GameManager.Instance.idleAgent.GetComponent<SaySomething>().say("퀘스트 완료!");
@@ -99,6 +100,7 @@ public class request : MonoBehaviour
         }
         else if (questIsGenerated == true && locationQuest == currentLocation.text && GameManager.Instance.checkReach)
         {
+            GameManager.Instance.checkJump = false;
             GameManager.Instance.curQuest = -1;
             catCanJump.Play("jump");
             GameManager.Instance.idleAgent.GetComponent<SaySomething>().say("퀘스트 완료!");
