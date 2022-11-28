@@ -25,7 +25,7 @@ public class Talking_NPC_Area : MonoBehaviour
         //NPC 영역안에 있고 유저가 텍스트를 전송했을 경우
         if (In_Area && GameManager.Instance.userText_set)
         {
-            Debug.Log("유저 솔라 영역안에 있음");
+            Debug.Log("영역안에 있음");
             dialogflow.GetComponent<diag>().solar_start(GameManager.Instance.userText);
             
             GameManager.Instance.userText_set=false;
@@ -47,7 +47,7 @@ public class Talking_NPC_Area : MonoBehaviour
             }
             else if (Jurassic)
             {
-                text = "나는 쥬라기로봇 다이노야. 어떤 주제에 대해 알고싶니?";
+                text = "나는 쥬라기로봇 다이노야. 무엇이든지 물어봐!";
             }
             NPC_Talking(text);
             In_Area = true;

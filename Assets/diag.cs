@@ -26,6 +26,11 @@ public class dfText2
     public string language_code;
 }
 
+[System.Serializable]
+public class comfort_question{
+    public string question;
+}
+
 
 
 
@@ -41,12 +46,16 @@ public class diag : MonoBehaviour
 
     public void solar_start(string text)
     {
-        StartCoroutine(MakeRequests(text));
+        StartCoroutine(SolarRequests(text));
     }
 
-    private IEnumerator MakeRequests(string question)
+    public void comfort_Start(string text){
+        //StartCoroutine(comfortRequests(text));
+    }
+
+    private IEnumerator SolarRequests(string question)
     {
-        //GET
+        /*//GET
         // var getRequest = CreateRequest("https://dialogflow.clients6.google.com/v2/projects/dialogflow11-363401/agent/sessions/87106d06-a910-f202-4f14-cbd4ec7d7128:detectIntent");
 
         // AttachHeader(getRequest, "Authorization", "Bearer ya29.a0Aa4xrXNip8CB7fJlBAmoCkyNq_nDBQitKaGAXeOaqbk6KFz8GCkB_3CO6vGMEkY1QONRpsMMWJxyCweFDySkUNlZHM_QyygE7R3LL0D9IHcHSgOi2aJl6cIT0gq0DFwiIZ2qG8eammS6_E-iv7zzegA2IvAs0X5A6PSYRYQfTJppzvrbs5Tyb7pCJBTXnXtvAvVhAvwz7f3X5BH4e4xPq8ftm8OLF9a_eU_0h32FWJa6xjUaCgYKATASARISFQEjDvL9QgXPI8d_5iyWoePf55O3Pw0246");
@@ -81,8 +90,41 @@ public class diag : MonoBehaviour
             talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(split);
         }
 
-        GameManager.Instance.userText_set = false;
+        GameManager.Instance.userText_set = false;*/
+        comfort_question cq=new comfort_question();
+        cq.question=question;
+        string question_data=JsonUtility.ToJson(cq);
+        string url="http://52.78.209.184:5000/answer";
+        using (UnityWebRequest webRequest=UnityWebRequest.Post(url,question_data)){
+
+            
+            
+            byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(question_data);
+            webRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+            webRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+            webRequest.SetRequestHeader("Content-Type", "application/json");
+            yield return webRequest.SendWebRequest();
+
+            switch(webRequest.result){
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.LogError(": Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.LogError(": HTTP Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    //Debug.Log("webrequest.downloadhandler.text: "+webRequest.downloadHandler.text);
+                    string result=webRequest.downloadHandler.text;
+                    talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(result);
+                    break;
+            }
+        }
     }
+
+    /*private IEnumerator comfortRequests(string text){
+
+    }*/
 
     IEnumerator sayTwo(string s1, string s2)
     {
