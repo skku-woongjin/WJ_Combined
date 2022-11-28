@@ -126,7 +126,7 @@ public class diag : MonoBehaviour
         comfort_question cq=new comfort_question();
         cq.question=question;
         string question_data=JsonUtility.ToJson(cq);
-        string url="http://52.78.209.184:5000/answer";
+        string url="http://52.78.55.230:5000/answer";
         using (UnityWebRequest webRequest=UnityWebRequest.Post(url,question_data)){
 
             
