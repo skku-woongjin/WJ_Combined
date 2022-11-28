@@ -50,7 +50,39 @@ public class diag : MonoBehaviour
     }
 
     public void comfort_Start(string text){
-        //StartCoroutine(comfortRequests(text));
+        StartCoroutine(comfortRequests(text));
+        
+    }
+    private IEnumerator comfortRequests(string question){
+        comfort_question cq=new comfort_question();
+        cq.question=question;
+        string question_data=JsonUtility.ToJson(cq);
+        string url="http://52.78.209.184:5000/answer";
+        using (UnityWebRequest webRequest=UnityWebRequest.Post(url,question_data)){
+
+            
+            
+            byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(question_data);
+            webRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+            webRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+            webRequest.SetRequestHeader("Content-Type", "application/json");
+            yield return webRequest.SendWebRequest();
+
+            switch(webRequest.result){
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.LogError(": Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.LogError(": HTTP Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    //Debug.Log("webrequest.downloadhandler.text: "+webRequest.downloadHandler.text);
+                    string result=webRequest.downloadHandler.text;
+                    talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(result);
+                    break;
+            }
+        }
     }
 
     private IEnumerator SolarRequests(string question)

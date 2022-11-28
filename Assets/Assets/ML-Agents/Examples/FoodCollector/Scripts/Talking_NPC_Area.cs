@@ -8,7 +8,7 @@ public class Talking_NPC_Area : MonoBehaviour
     public GameObject TTS_Audio;
     public GameObject dialogflow;
     public bool Jurassic;
-    public bool Solar;
+    public bool comfort;
     bool In_Area = false;
     public GameObject chatmanager;
     public GameObject chat_log;
@@ -25,8 +25,14 @@ public class Talking_NPC_Area : MonoBehaviour
         //NPC 영역안에 있고 유저가 텍스트를 전송했을 경우
         if (In_Area && GameManager.Instance.userText_set)
         {
-            Debug.Log("영역안에 있음");
-            dialogflow.GetComponent<diag>().solar_start(GameManager.Instance.userText);
+            if(Jurassic){
+                Debug.Log("영역안에 있음");
+                dialogflow.GetComponent<diag>().solar_start(GameManager.Instance.userText);
+            }
+            else if(comfort){
+                dialogflow.GetComponent<diag>().comfort_Start(GameManager.Instance.userText);
+            }
+            
             
             GameManager.Instance.userText_set=false;
         }
@@ -39,15 +45,15 @@ public class Talking_NPC_Area : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             In_Area=true;
-            chat_log.SetActive(true);
+            //chat_log.SetActive(true);
             Debug.Log("Enter area");
-            if (Solar)
+            if (comfort)
             {
-                text = "나는 태양계로봇 솔라야. 나랑 태양계에 대해서 알아볼까?";
+                text = "저는 위로로봇 힐링입니다. 고민거리가 있으신가요?";
             }
             else if (Jurassic)
             {
-                text = "나는 쥬라기로봇 다이노야. 무엇이든지 물어봐!";
+                text = "나는 질의응답로봇 위키봇이야. 무엇이든지 물어봐!";
             }
             NPC_Talking(text);
             In_Area = true;
