@@ -53,7 +53,7 @@ public class Talking_NPC_Area : MonoBehaviour
             }
             else if (Jurassic)
             {
-                text = "나는 질의응답로봇 위키봇이야. 무엇이든지 물어봐!";
+                text = "나는 질의응답로봇 위키야. 무엇이든지 물어봐!";
             }
             NPC_Talking(text);
             In_Area = true;

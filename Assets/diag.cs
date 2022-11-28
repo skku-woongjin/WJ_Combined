@@ -37,7 +37,8 @@ public class comfort_question{
 public class diag : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject talking_area;
+    public GameObject wiki_area;
+    public GameObject comfort_area;
     private void Start()
     {
         Debug.Log("plz");
@@ -79,7 +80,7 @@ public class diag : MonoBehaviour
                 case UnityWebRequest.Result.Success:
                     //Debug.Log("webrequest.downloadhandler.text: "+webRequest.downloadHandler.text);
                     string result=webRequest.downloadHandler.text;
-                    talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(result);
+                    comfort_area.GetComponent<Talking_NPC_Area>().NPC_Talking(result);
                     break;
             }
         }
@@ -148,7 +149,7 @@ public class diag : MonoBehaviour
                 case UnityWebRequest.Result.Success:
                     //Debug.Log("webrequest.downloadhandler.text: "+webRequest.downloadHandler.text);
                     string result=webRequest.downloadHandler.text;
-                    talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(result);
+                    wiki_area.GetComponent<Talking_NPC_Area>().NPC_Talking(result);
                     break;
             }
         }
@@ -160,9 +161,9 @@ public class diag : MonoBehaviour
 
     IEnumerator sayTwo(string s1, string s2)
     {
-        talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(s1);
+        wiki_area.GetComponent<Talking_NPC_Area>().NPC_Talking(s1);
         yield return new WaitForSecondsRealtime(6f);
-        talking_area.GetComponent<Talking_NPC_Area>().NPC_Talking(s2);
+        wiki_area.GetComponent<Talking_NPC_Area>().NPC_Talking(s2);
     }
 
     private UnityWebRequest CreateRequest(string path, RequestType type = RequestType.GET, dialogflow2 data = null)
