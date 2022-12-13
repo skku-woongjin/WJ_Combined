@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text Type1;
     public TMP_Text Type2;
     public TMP_Text Type3;
+    public int chkRecView=0;
     public static GameManager Instance
     {
         get
@@ -62,5 +63,19 @@ public class GameManager : MonoBehaviour
     {
         gm = this;
         destinations = destParent.GetComponentsInChildren<Transform>();
+    }
+    public void OffRecView()
+    {
+        if(chkRecView == 0)
+        {
+            RecViewObj.SetActive(true);
+            chkRecView = 1;
+        }
+        else
+        {
+            RecViewObj.SetActive(false);
+            chkRecView = 0;
+        }
+        
     }
 }
