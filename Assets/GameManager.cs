@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text Type2;
     public TMP_Text Type3;
     public int chkRecView=0;
+    public int[] RecVisited;
     public static GameManager Instance
     {
         get
