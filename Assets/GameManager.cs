@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
     public string userText;
     public bool checkReach;
     public bool checkJump;
+
+    public GameObject RecViewObj;
+    public TMP_Text Type1;
+    public TMP_Text Type2;
+    public TMP_Text Type3;
     public static GameManager Instance
     {
         get
