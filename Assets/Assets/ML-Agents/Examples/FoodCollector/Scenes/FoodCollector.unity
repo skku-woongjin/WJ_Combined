@@ -17423,6 +17423,7 @@ MonoBehaviour:
   Type2: {fileID: 793603843}
   Type3: {fileID: 301474873}
   chkRecView: 0
+  RecVisited: 0000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &874421062
 MonoBehaviour:
   m_ObjectHideFlags: 0
