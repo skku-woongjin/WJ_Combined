@@ -38,12 +38,14 @@ public class GameManager : MonoBehaviour
     public bool checkReach;
     public bool checkJump;
 
-    public GameObject RecViewObj;
-    public TMP_Text Type1;
-    public TMP_Text Type2;
-    public TMP_Text Type3;
-    public int chkRecView=0;
-    public int[] RecVisited;
+    public GameObject RecViewObj; // UI on off 용도
+    public TMP_Text Type1; //새로운 곳 탐험 추천 결과
+    public TMP_Text Type2; //늘 가던곳 추천
+    public TMP_Text Type3; //오픈런형 추천 결과
+    public int chkRecView=0; //UI on off 용
+    public int[] RecVisited; // 각각 방문 횟수 저장
+    //인덱스 번호 : "쥐라기 파크" - 0, "거북선" - 1, "게임기"-2,
+    //"자동차"-3, "교실"-4, "도서관"-5, "놀이터"-6, "태양계"-7 
     public static GameManager Instance
     {
         get
