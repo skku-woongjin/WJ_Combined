@@ -31,12 +31,12 @@ public class AreaBasedLocation : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.locationUI.text = "복도";
-            for(int i = 0 ; i < 8 ;i++)
+            for (int i = 0; i < 8; i++)
             {
                 Debug.Log(GameManager.Instance.RecVisited[i]);
             }
         }
         GameManager.Instance.req.CheckQuestSuccess();
-        GameManager.Instance.recAgent.updateFlags(locID);
+
     }
 }

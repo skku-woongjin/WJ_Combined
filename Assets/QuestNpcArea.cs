@@ -20,16 +20,19 @@ public class QuestNpcArea : MonoBehaviour
     {
 
     }
-    IEnumerator checkWait(){
+    IEnumerator checkWait()
+    {
         yield return new WaitForSeconds(3);
         check3Second = true;
     }
-    public void questByQnpc(){
+    public void questByQnpc()
+    {
         questMakeBtn.SetActive(false);
         GameManager.Instance.questGiver = transform.parent.GetComponent<SaySomething>();
-        GameManager.Instance.recAgent.recommend();
+        //TODO 추천하기 
+        // GameManager.Instance.recAgent.recommend();
         StartCoroutine(checkWait());
-    } 
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && check3Second && checkIN == false)
@@ -39,8 +42,8 @@ public class QuestNpcArea : MonoBehaviour
             check3Second = false;
             transform.parent.GetComponent<SaySomething>().say("안녕! 난 퀘스트 봇!");
             transform.parent.rotation = Quaternion.LookRotation(other.transform.GetComponentInChildren<Camera>().transform.position - transform.parent.position);
-            
-            
+
+
         }
     }
     private void OnTriggerExit(Collider other)

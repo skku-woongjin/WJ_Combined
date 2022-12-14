@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6382448, g: 0.88758785, b: 0.9159584, a: 1}
+  m_IndirectSpecularColor: {r: 0.63824624, g: 0.8875883, b: 0.91595554, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1858,7 +1858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 397323376}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &99632394
 MonoBehaviour:
@@ -3698,7 +3698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 1808695027}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &197853629
 MonoBehaviour:
@@ -5970,7 +5970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 753398925}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &298546598
 MonoBehaviour:
@@ -6734,7 +6734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 453434925}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &348437972
 MonoBehaviour:
@@ -7294,7 +7294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 0}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &356360933
 MonoBehaviour:
@@ -7432,7 +7432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 374482340}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &363001017
 MonoBehaviour:
@@ -8362,7 +8362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 439033175}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &413262636
 MonoBehaviour:
@@ -9982,7 +9982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 1545910249}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &489204138
 MonoBehaviour:
@@ -11096,7 +11096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 1326773741}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &572116078
 MonoBehaviour:
@@ -14114,7 +14114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 928227570}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &679713085
 MonoBehaviour:
@@ -14861,7 +14861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 35949591}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &701229637
 MonoBehaviour:
@@ -17939,7 +17939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 1587075395}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &921741912
 MonoBehaviour:
@@ -20131,16 +20131,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 24
+    VectorObservationSize: 60
     NumStackedVectorObservations: 1
     m_ActionSpec:
-      m_NumContinuousActions: 0
-      BranchSizes: 08000000
-    VectorActionSize: 08000000
+      m_NumContinuousActions: 3
+      BranchSizes: 
+    VectorActionSize: 03000000
     VectorActionDescriptions: []
-    VectorActionSpaceType: 0
+    VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: fc44331217df24af6899e3f602ad3668, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 4bdac69adba7b4847892940f9ab1f854, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: RecommendContent
@@ -20177,26 +20177,12 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 100000
-  autoHeuristic: 1
-  debugReward: 1
+  trivariate: 1
+  logLen: 20
   warp: 1
-  candidates: {fileID: 635198371}
-  curdest: -1
-  flagPrefab: {fileID: 7985525626067312151, guid: 13f66594be81c44ddbbc223c2d42cba3,
-    type: 3}
-  trails: {fileID: 2011330346}
-  flagCount: 8
-  destQSize: 24
-  epLength: 100
-  trailGridComp: {fileID: 7171315282179562392}
-  cellSize: 1
   worldSize: 100
-  numOfFlags: 0
-  flagpos: []
-  flagsPos: {fileID: 1749301591}
-  showResult: 0
-  showTime: 1
   rew: 0
+  recommendResult: 0
 --- !u!1 &1061799963
 GameObject:
   m_ObjectHideFlags: 0
@@ -21090,7 +21076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 1525542437}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &1114143011
 MonoBehaviour:
@@ -21359,7 +21345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 1737382500}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &1135371417
 MonoBehaviour:
@@ -23907,7 +23893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 450360930}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &1302603843
 MonoBehaviour:
@@ -25241,7 +25227,7 @@ MonoBehaviour:
   destQSize: 24
   epLength: 100
   flagGridComp: {fileID: 0}
-  trailGridComp: {fileID: 7171315282179562392}
+  trailGridComp: {fileID: 0}
   cellSize: 1
   worldSize: 100
   numOfFlags: 0
@@ -25777,7 +25763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 1691491852}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &1426864533
 MonoBehaviour:
@@ -26327,7 +26313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 0}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &1475567119
 MonoBehaviour:
@@ -26739,7 +26725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 936783504}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &1484159334
 MonoBehaviour:
@@ -32562,7 +32548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 965089935}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &1893754188
 MonoBehaviour:
@@ -32840,7 +32826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 1111554275}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &1906878311
 MonoBehaviour:
@@ -33803,7 +33789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 0}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &1946191581
 MonoBehaviour:
@@ -35439,7 +35425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 583999395}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!114 &2040919768
 MonoBehaviour:
@@ -37471,7 +37457,6 @@ GameObject:
   - component: {fileID: 1061234225}
   - component: {fileID: 1061234227}
   - component: {fileID: 1061234228}
-  - component: {fileID: 7171315282179562392}
   - component: {fileID: 874421060}
   - component: {fileID: 874421062}
   m_Layer: 0
@@ -39704,7 +39689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63684713a1ecd439b31bfb20844faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 2838578335459277708}
+  go: {fileID: 0}
   UnitsToMove: 0
 --- !u!224 &2838578335774498269
 RectTransform:
@@ -40124,6 +40109,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NearGameGroup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686696599208309388, guid: 3fd737e5a6e00f44c8534a47abecd243,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8895019249261963543, guid: 3fd737e5a6e00f44c8534a47abecd243,
         type: 3}
@@ -41128,38 +41118,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7171315282179562392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819751326524660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2b1228c827ad8d4d86b457aa28a67be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ObservationShape: 1 channel x 20 width x 20 height
-  m_SensorName: DenseTrail
-  m_ObservationStacks: 1
-  m_CompressionType: 1
-  m_ObservationType: 0
-  m_ChannelLabels: []
-  m_Debug_CreateSensorOnAwake: 0
-  m_Debug_CreateSensorOnValidate: 1
-  m_Debug_FrameInterval: 1
-  m_Debug_DrawGridBuffer: 1
-  m_Debug_GridBufferDrawer:
-    Context: {fileID: 0}
-    Editor: {fileID: 0}
-    GridSizeRatio: 0
-    IsEnabled: 0
-    IsStandby: 0
-  m_GridShape:
-    NumChannels: 1
-    Width: 20
-    Height: 20
 --- !u!4 &7202849076439518481
 Transform:
   m_ObjectHideFlags: 0
