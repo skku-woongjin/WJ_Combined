@@ -68,22 +68,77 @@ public class GameManager : MonoBehaviour
         // GameManager.Instance.recAgent.recommend();
     }
 
+    public void recommend(int meanVis, float meanDist, float meanTime)
+    {
+        recAgent.generateLog(meanVis, meanDist, meanTime);
+        recAgent.RequestDecision();
+    }
+
+    public int txtIdx;
+    public int[] curQuests;
+
+    public void nextRec()
+    {
+        txtIdx++;
+        if (txtIdx == 1)
+        {
+            recAgent.targetText = Type1;
+            recommend(0, recAgent.maxdist, 0);
+        }
+        else if (txtIdx == 2)
+        {
+            recAgent.targetText = Type2;
+            recommend(recAgent.maxcount, 0, recAgent.maxdist);
+        }
+
+    }
+
+
+    public void setCurQuest(int idx)
+    {
+        curQuest = curQuests[idx];
+    }
+
     int flagCount = 8;
     private void Awake()
     {
         gm = this;
         destinations = destParent.GetComponentsInChildren<Transform>();
         flags = new Flag[flagCount];
+        curQuests = new int[3];
+
         for (int i = 0; i < flagCount; i++)
         {
             flags[i] = new Flag();
+            flags[i].id = i;
+            flags[i].pos = destinations[i + 1].position;
         }
+        recAgent = GetComponent<RecommendAgent>();
     }
+
+    public void updateFlagDist()
+    {
+        string debug = "";
+        foreach (Flag flag in flags)
+        {
+            flag.dist = Vector3.Distance(flag.pos, owner.transform.position);
+            debug += placeNames[flag.id] + "\n";
+            debug += "dist: " + flag.dist + "\n";
+            debug += "posd: " + flag.pos + "\n";
+            debug += "vis:" + flag.visited + "\n\n";
+        }
+
+        Debug.Log(debug);
+
+    }
+
     public void OffRecView()
     {
         if (chkRecView == 0)
         {
             RecViewObj.SetActive(true);
+            txtIdx = 0;
+            nextRec();
             chkRecView = 1;
         }
         else

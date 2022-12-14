@@ -47,12 +47,17 @@ public class RecommendAgent : Agent
     }
 
 
-    public void generateLog()
+    public void generateLog(int meanVis, float meanDist, float meanTime)
     {
         int count = 0;
         float dist;
         int visited;
         float time;
+
+        userMean3.x = meanVis;
+        userMean3.y = meanDist;
+        userMean3.z = meanTime;
+
         while (count < logLen)
         {
             dist = UnityEngine.Random.Range(0, maxdist);
@@ -90,9 +95,9 @@ public class RecommendAgent : Agent
         }
     }
 
-    float maxdist = 100 * Mathf.Sqrt(2);
+    public float maxdist = 100 * Mathf.Sqrt(2);
 
-    float maxcount;
+    public int maxcount;
     public static double GetBivariateGuassian(double muX, double sigmaX, double muY, double sigmaY, double x, double y, double rho = 0)
     {
         var sigmaXSquared = Math.Pow(sigmaX, 2);
@@ -133,28 +138,44 @@ public class RecommendAgent : Agent
 
     public double rew;
 
-    public int recommendResult; // 추천한 결과가 여기에 저장됨 
 
+    public TMP_Text targetText;
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         var count = (actionBuffers.ContinuousActions[0] + 1) / 2 * maxcount;
         var dist = (actionBuffers.ContinuousActions[1] + 1) / 2 * maxdist;
-        var time = 0.0f;
+        var time = (actionBuffers.ContinuousActions[2] + 1) / 2 * maxdist;
 
+        rew = Math.Sqrt(Math.Pow(userMean3.x - count, 2) + Math.Pow(userMean3.y - dist, 2) + Math.Pow(userMean3.z - time, 2)) / Math.Sqrt(Math.Pow(maxcount, 2) + Math.Pow(maxdist, 2) + Math.Pow(maxdist, 2));
+        rew = 1 - rew;
 
-        if (trivariate)
+        GameManager.Instance.updateFlagDist();
+
+        Debug.Log(count + "\n" + dist + "\n" + time);
+
+        foreach (Flag flag in GameManager.Instance.flags)
         {
-            time = (actionBuffers.ContinuousActions[2] + 1) / 2 * maxdist;
-            rew = Math.Sqrt(Math.Pow(userMean3.x - count, 2) + Math.Pow(userMean3.y - dist, 2) + Math.Pow(userMean3.z - time, 2)) / Math.Sqrt(Math.Pow(maxcount, 2) + Math.Pow(maxdist, 2) + Math.Pow(maxdist, 2));
-            rew = 1 - rew;
+            if (trivariate)
+            {
+                flag.fitness = Vector3.Distance(new Vector3(flag.visited, flag.dist, flag.time), new Vector3(count, dist, time));
+            }
         }
-        else
-        {
-            rew = GetBivariateGuassian(userMean.x, 5, userMean.y, 10 * maxdist / maxcount, count, dist, 0) / maxGaus;
-        }
+        GameManager.Instance.flagFitness = GameManager.Instance.flags.OrderBy(v => v.fitness).ThenBy(v => v.dist).ToArray<Flag>();
 
         AddReward((float)rew);
+
+        if (targetText != null)
+        {
+            targetText.text = GameManager.Instance.placeNames[GameManager.Instance.flagFitness[0].id];
+            Debug.Log(GameManager.Instance.txtIdx);
+            GameManager.Instance.curQuests[GameManager.Instance.txtIdx - 1] = GameManager.Instance.flagFitness[0].id;
+            GameManager.Instance.nextRec();
+
+        }
+
+
+
 
         return;
 

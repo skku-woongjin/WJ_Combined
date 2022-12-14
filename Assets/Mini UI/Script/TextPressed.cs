@@ -11,7 +11,6 @@ public class TextPressed : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void Start()
     {
-
         vector2 = go.GetComponent<RectTransform>().anchoredPosition;
     }
 

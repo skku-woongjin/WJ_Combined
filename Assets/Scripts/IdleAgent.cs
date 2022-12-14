@@ -723,12 +723,11 @@ public class IdleAgent : Agent
         navIcon.SetActive(true);
         nav.stoppingDistance = 5;
         NavMeshHit hit;
-        Debug.Log(GameManager.Instance.curQuest);
-        Debug.Log(GameManager.Instance.destinations[GameManager.Instance.curQuest + 1].gameObject.name);
+
         NavMesh.SamplePosition(removY(GameManager.Instance.destinations[GameManager.Instance.curQuest + 1].position), out hit, 5, 1);
 
         Vector3 finalPosition = hit.position;
-        Debug.Log(finalPosition);
+
         nav.enabled = true;
         nav.SetDestination(hit.position);
         state = States.lead;
