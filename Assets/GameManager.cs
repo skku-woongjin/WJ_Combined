@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -97,6 +98,24 @@ public class GameManager : MonoBehaviour
     public void setCurQuest(int idx)
     {
         curQuest = curQuests[idx];
+        if (idx == 0)
+        {
+            Type1.transform.parent.GetChild(2).gameObject.SetActive(true);
+            Type2.transform.parent.GetComponent<Button>().interactable = false;
+            Type3.transform.parent.GetComponent<Button>().interactable = false;
+        }
+        else if (idx == 1)
+        {
+            Type2.transform.parent.GetChild(2).gameObject.SetActive(true);
+            Type1.transform.parent.GetComponent<Button>().interactable = false;
+            Type3.transform.parent.GetComponent<Button>().interactable = false;
+        }
+        else if (idx == 2)
+        {
+            Type3.transform.parent.GetChild(2).gameObject.SetActive(true);
+            Type2.transform.parent.GetComponent<Button>().interactable = false;
+            Type1.transform.parent.GetComponent<Button>().interactable = false;
+        }
     }
 
     int flagCount = 8;
@@ -136,6 +155,12 @@ public class GameManager : MonoBehaviour
     {
         if (chkRecView == 0)
         {
+            Type1.transform.parent.GetChild(2).gameObject.SetActive(false);
+            Type2.transform.parent.GetChild(2).gameObject.SetActive(false);
+            Type3.transform.parent.GetChild(2).gameObject.SetActive(false);
+            Type3.transform.parent.GetComponent<Button>().interactable = true;
+            Type2.transform.parent.GetComponent<Button>().interactable = true;
+            Type1.transform.parent.GetComponent<Button>().interactable = true;
             RecViewObj.SetActive(true);
             txtIdx = 0;
             nextRec();
