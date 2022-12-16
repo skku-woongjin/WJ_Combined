@@ -93,7 +93,7 @@ public class IdleAgent : Agent
     float autoTurnSpeed = 150;
     float autoMoveSpeed = 0.15f;
     IEnumerator inteStop;
-    Vector3 removY(Vector3 vec)
+    public Vector3 removY(Vector3 vec)
     {
         return new Vector3(vec.x, 0, vec.z);
     }
@@ -659,7 +659,7 @@ public class IdleAgent : Agent
             yield return new WaitForFixedUpdate();
         }
     }
-    void stopStart()
+    public void stopStart()
     {
         if (Random.Range(0, 3) < 1)
         {

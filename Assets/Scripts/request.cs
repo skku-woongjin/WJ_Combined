@@ -76,10 +76,12 @@ public class request : MonoBehaviour
         questIsGenerated = true;
 
     }
-    public bool getLocationEqual(){
+    public bool getLocationEqual()
+    {
         return locationQuest == currentLocation.text;
     }
-    public bool getQuestGen(){
+    public bool getQuestGen()
+    {
         return questIsGenerated == true;
     }
     public void CheckQuestSuccess()
@@ -171,7 +173,7 @@ public class request : MonoBehaviour
         string bodyData = JsonUtility.ToJson(body);
         //Debug.Log(bodyData);
         // var postData = System.Text.Encoding.UTF8.GetBytes(bodyData);
-        var req = new UnityWebRequest("http://3.39.9.191:5000/quest_gen", "POST");
+        var req = new UnityWebRequest("http://52.79.234.232:5000/quest_gen", "POST");
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(bodyData);
         req.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
         req.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
@@ -207,11 +209,13 @@ public class request : MonoBehaviour
             }
             GameManager.Instance.checkJump = false;
             GameManager.Instance.checkReach = false;
-            if(quest.Contains("점프")){
+            if (quest.Contains("점프"))
+            {
                 questType = 1;
                 StartCoroutine(questJump());
             }
-            else if(quest.Contains("올라타")){
+            else if (quest.Contains("올라타"))
+            {
                 questType = 2;
                 StartCoroutine(questReach());
             }
@@ -220,10 +224,11 @@ public class request : MonoBehaviour
             GameManager.Instance.QuestUI.SetActive(true);
             keyWords.text = "키워드: " + keywords.Replace("*", ",").Replace("0", "").Replace("None", "").Replace("n개", "").Replace("n번", "").Replace("n회", "");
             //TODO - 좋아 싫어 띄우기 
-            GameManager.Instance.idleAgent.Invoke("showOkNoQuest", 0.5f);
+            // GameManager.Instance.idleAgent.Invoke("showOkNoQuest", 0.5f);
         }
-        IEnumerator questReach(){
-            yield return new WaitUntil(()=> GameManager.Instance.checkReach);
+        IEnumerator questReach()
+        {
+            yield return new WaitUntil(() => GameManager.Instance.checkReach);
             CheckQuestSuccess();
         }
         IEnumerator questJump()

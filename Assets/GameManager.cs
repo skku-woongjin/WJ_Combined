@@ -116,6 +116,13 @@ public class GameManager : MonoBehaviour
             Type2.transform.parent.GetComponent<Button>().interactable = false;
             Type1.transform.parent.GetComponent<Button>().interactable = false;
         }
+        GameManager.Instance.questGiver = idleAgent.GetComponent<SaySomething>();
+        GameManager.Instance.req.NewQuest(curQuest);
+        GameManager.Instance.idleAgent.stopStart();
+        transform.rotation = Quaternion.LookRotation(-idleAgent.removY(transform.position - GameManager.Instance.owner.position));
+        idleAgent.state = IdleAgent.States.say;
+        GameManager.Instance.idleAgent.Invoke("lead", 5f);
+
     }
 
     int flagCount = 8;
