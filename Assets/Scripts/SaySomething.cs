@@ -69,8 +69,11 @@ public class SaySomething : MonoBehaviour
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(bubble.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>());
         Canvas.ForceUpdateCanvases();
-        bubble.GetComponent<RectTransform>().GetChild(0).GetComponent<LayoutGroup>().enabled = false;
-        bubble.GetComponent<RectTransform>().GetChild(0).GetComponent<LayoutGroup>().enabled = true;
+        if (bubble.GetComponent<RectTransform>().GetChild(0).GetComponent<LayoutGroup>() != null)
+        {
+            bubble.GetComponent<RectTransform>().GetChild(0).GetComponent<LayoutGroup>().enabled = false;
+            bubble.GetComponent<RectTransform>().GetChild(0).GetComponent<LayoutGroup>().enabled = true;
+        }
 
 
     }
@@ -80,9 +83,12 @@ public class SaySomething : MonoBehaviour
         yield return new WaitForEndOfFrame();
         LayoutRebuilder.ForceRebuildLayoutImmediate(obj.GetChild(0).GetComponent<RectTransform>());
         Canvas.ForceUpdateCanvases();
-        obj.GetChild(0).GetComponent<LayoutGroup>().enabled = false;
-        yield return new WaitForEndOfFrame();
-        obj.GetChild(0).GetComponent<LayoutGroup>().enabled = true;
+        if (obj.GetChild(0).GetComponent<LayoutGroup>() != null)
+        {
+            obj.GetChild(0).GetComponent<LayoutGroup>().enabled = false;
+            yield return new WaitForEndOfFrame();
+            obj.GetChild(0).GetComponent<LayoutGroup>().enabled = true;
+        }
     }
 
     private void Update()

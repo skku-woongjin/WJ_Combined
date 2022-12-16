@@ -17,26 +17,7 @@ public class TrailGenerator : MonoBehaviour
         trail = traces.GetComponent<TrailEnergyDecrease>();
     }
 
-    public void goTo(int id)
-    {
-        if (id < 0)
-        {
-            if (!agent.warp)
-                nav.SetDestination(new Vector3(0, 0, 0));
-        }
-        else
-        {
-            Vector3 pos = agent.flagpos[id] + agent.transform.position;
-            makeTrace(5);
-            if (!agent.warp)
-                nav.SetDestination(pos);
-            else
-            {
-                warpTo(pos);
-            }
-        }
-        agent.updateFlags(id);
-    }
+
     private Vector3 makeNoisePoint(Vector3 prevPos, Vector3 nextPos)
     {
         while (true)
@@ -87,10 +68,7 @@ public class TrailGenerator : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < n; i++)
-        {
-            goTo(Random.Range(0, agent.flagCount));
-        }
+
     }
 
     void traceLine(Vector3 src, Vector3 dst)
@@ -138,7 +116,6 @@ public class TrailGenerator : MonoBehaviour
 
 
 }
-
 
 
 // if (queueFilled > 0)

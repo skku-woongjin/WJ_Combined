@@ -58,8 +58,7 @@ public class RecommendAgentMax : Agent
         int j = 0;
         foreach (Transform child in candidates)
         {
-            child.transform.localPosition = flagpos[j];
-            GetComponent<RecommendAgent>().flagGrid.Write(0, Convert.ToInt32((child.localPosition.x + 50) / cellSize), Convert.ToInt32((child.localPosition.z + 50) / cellSize), 1);
+
             j++;
         }
     }
@@ -82,7 +81,7 @@ public class RecommendAgentMax : Agent
             //flagCount =(int)(Academy.Instance.EnvironmentParameters.GetWithDefault("block_offset",numOfFlags));
             for (int i = 0; i < flagCount; i++)
             {
-                
+
                 GameObject tmp = Instantiate(flagPrefab, candidates);
                 tmp.GetComponentInChildren<TMP_Text>().text = i + "";
             }
@@ -103,7 +102,7 @@ public class RecommendAgentMax : Agent
     public override void OnEpisodeBegin()
     {
         rew = 0;
-        
+
         if (curdest > -1)
             candidates.GetChild(curdest).GetComponent<FlagColor>().yellow();
         curdest = -1;
@@ -117,7 +116,7 @@ public class RecommendAgentMax : Agent
         destQfilled = 0;
         going = false;
         curep = 0;
-      
+
 
     }
 
@@ -144,7 +143,7 @@ public class RecommendAgentMax : Agent
 
     public bool showResult;
     public float showTime;
-    
+
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         var action = actionBuffers.DiscreteActions[0];
@@ -153,7 +152,7 @@ public class RecommendAgentMax : Agent
             going = true;
 
             curdest = action;
-           
+
             candidates.GetChild(action).GetComponent<FlagColor>().red();
 
             float g = destQSize / flagCount;
@@ -167,7 +166,7 @@ public class RecommendAgentMax : Agent
                 Debug.Log(GameManager.Instance.placeNames[action]);
                 GameManager.Instance.req.NewQuest(action);
             }
-                
+
 
             if (warp)
             {

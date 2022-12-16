@@ -1,253 +1,185 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
+using System.Collections;
+using System.Collections.Generic;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using System;
 using TMPro;
-using MBaske.Sensors.Grid;
-using Unity.MLAgents.Policies;
+using UnityEngine.UI;
 using System.Linq;
 
 public class RecommendAgent : Agent
 {
-    public bool autoHeuristic;
-    public bool debugReward;
+    public bool trivariate = false;
+    public int logLen = 20;
     public bool warp;
-    public Transform candidates;
-    public int curdest = -1;
-
-    public GameObject flagPrefab;
-
-    public Transform trails;
-
-    public int flagCount;
-    public int destQSize;
-    int destQfilled;
-    Queue<int> destQ;
-    int[] flagVisited;
-    bool going = false;
-
-    public int epLength;
-    int curep;
-
-    public GridBuffer flagGrid;
-    public GridBuffer trailGrid;
-
-    public MBaske.Sensors.Grid.GridSensorComponent trailGridComp;
-    public int cellSize;
     public int worldSize;
-    public int numOfFlags;
 
-    public Vector3[] flagpos;
-
-    public void recommend()
-    {
-        RequestDecision();
-    }
-
-    void setRandomPosition()
-    {
-        // flagGrid.ClearChannel(0);
-        for (int i = 0; i < flagCount; i++)
-        {
-            flagpos[i] = new Vector3(UnityEngine.Random.Range(-worldSize / 2 + 2, worldSize / 2 - 2), 0, UnityEngine.Random.Range(-worldSize / 2 + 2, worldSize / 2 - 2));
-        }
-
-        flagpos = flagpos.OrderBy(v => -v.z).ThenBy(v => v.x).ToArray<Vector3>();
-
-        int j = 0;
-        foreach (Transform child in candidates)
-        {
-            child.transform.localPosition = flagpos[j];
-            // GetComponent<RecommendAgent>().flagGrid.Write(0, Convert.ToInt32((child.localPosition.x + 50) / cellSize), Convert.ToInt32((child.localPosition.z + 50) / cellSize), 1);
-            j++;
-        }
-    }
-
-    public Transform flagsPos;
-
-    void setFlagPos()
-    {
-        for (int i = 0; i < flagCount; i++)
-        {
-            flagpos[i] = new Vector3(flagsPos.GetChild(i).position.x, 0, flagsPos.GetChild(i).position.z);
-        }
-
-        flagpos = flagpos.OrderBy(v => -v.z).ThenBy(v => v.x).ToArray<Vector3>();
-
-        int j = 0;
-        foreach (Transform child in candidates)
-        {
-            child.transform.localPosition = flagpos[j];
-            // GetComponent<RecommendAgent>().flagGrid.Write(0, Convert.ToInt32((child.localPosition.x + 50) / cellSize), Convert.ToInt32((child.localPosition.z + 50) / cellSize), 1);
-            j++;
-        }
-    }
+    Vector2 userMean;
+    Vector3 userMean3;
+    Vector2[] userLog;
+    Vector3[] userLog3;
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        for (int i = 0; i < flagpos.Length; i++)
+        if (trivariate)
         {
-            sensor.AddObservation(new Vector3(flagpos[i].x, flagVisited[i], flagpos[i].z));
+            foreach (Vector3 vec in userLog3)
+                sensor.AddObservation(vec);
         }
+        else
+        {
+            foreach (Vector2 vec in userLog)
+                sensor.AddObservation(vec);
+        }
+
     }
+
+    float maxGaus = 0;
 
     public override void Initialize()
     {
-        if (candidates.childCount == 0)
-        {
-            flagCount = 8;
-            // flagCount = (int)(Academy.Instance.EnvironmentParameters.GetWithDefault("block_offset", numOfFlags));
-            for (int i = 0; i < flagCount; i++)
-            {
+        userLog = new Vector2[logLen];
+        userLog3 = new Vector3[logLen];
 
-                GameObject tmp = Instantiate(flagPrefab, candidates);
-                // tmp.GetComponentInChildren<TMP_Text>().text = i + "";
-            }
-        }
-
-        // flagGrid = new ColorGridBuffer(1, worldSize / cellSize, worldSize / cellSize);
-        // flagGridComp.GridBuffer = flagGrid;
-        trailGrid = new ColorGridBuffer(1, worldSize / cellSize, worldSize / cellSize);
-        trailGridComp.GridBuffer = trailGrid;
-        destQ = new Queue<int>();
-        flagVisited = new int[flagCount];
-        flagpos = new Vector3[flagCount];
-        curdest = -1;
-        setFlagPos();
-
+        maxcount = 24;
     }
 
-    public override void OnEpisodeBegin()
+
+    public void generateLog(int meanVis, float meanDist, float meanTime)
     {
-        rew = 0;
+        int count = 0;
+        float dist;
+        int visited;
+        float time;
 
-        if (curdest > -1)
-            candidates.GetChild(curdest).GetComponent<FlagColor>().yellow();
-        curdest = -1;
-        // foreach (Transform child in trails)
-        // {
-        //     Destroy(child.gameObject);
-        // }
+        userMean3.x = meanVis;
+        userMean3.y = meanDist;
+        userMean3.z = meanTime;
 
-        // destQ.Clear();
-        // Array.Clear(flagVisited, 0, flagVisited.Length);
-        // destQfilled = 0;
-        going = false;
-        curep = 0;
-
-    }
-
-    public void updateFlags(int dest)
-    {
-        if (dest >= 0)
+        while (count < logLen)
         {
-            if (destQfilled == destQSize)
+            dist = UnityEngine.Random.Range(0, maxdist);
+            visited = UnityEngine.Random.Range(0, (int)maxcount + 1);
+            if (trivariate)
             {
-                flagVisited[destQ.Dequeue()]--;
-                destQfilled--;
-            }
-
-            destQ.Enqueue(dest);
-            destQfilled++;
-            flagVisited[dest]++;
-        }
-
-        for (int i = 0; i < candidates.childCount; i++)
-        {
-            candidates.GetChild(i).GetChild(2).GetChild(1).GetComponent<TMP_Text>().text = flagVisited[i] + "";
-        }
-    }
-
-    public bool showResult;
-    public float showTime;
-    public override void OnActionReceived(ActionBuffers actionBuffers)
-    {
-        var action = actionBuffers.DiscreteActions[0];
-        if (action != -1 && action < candidates.childCount)
-        {
-            going = true;
-
-            curdest = action;
-            candidates.GetChild(action).GetComponent<FlagColor>().red();
-
-            float g = destQSize / flagCount;
-
-            rew += 1 - flagVisited[action] / g;
-            AddReward(1 - flagVisited[action] / g);
-
-            if (debugReward)
-            {
-                Debug.Log("id: " + action + "\n #visited: " + flagVisited[action] + " reward: " + (1 - flagVisited[action] / g));
-                Debug.Log(GameManager.Instance.placeNames[action]);
-                GameManager.Instance.req.NewQuest(action);
-            }
-
-            if (warp)
-            {
-                if (showResult)
-                    Invoke("EndEpisode", showTime);
-                else
-                    EndEpisode();
-                return;
-            }
-            curep++;
-            if (curep == epLength)
-                EndEpisode();
-        }
-        else
-        {
-            Debug.Log(action);
-        }
-
-    }
-
-    public override void Heuristic(in ActionBuffers actionsOut)
-    {
-        var discreteActionsOut = actionsOut.DiscreteActions;
-        if (!autoHeuristic)
-        {
-
-            if (Input.GetKey(KeyCode.Alpha0)) { discreteActionsOut[0] = 0; }
-            else if (Input.GetKey(KeyCode.Alpha1)) discreteActionsOut[0] = 1;
-            else if (Input.GetKey(KeyCode.Alpha2)) discreteActionsOut[0] = 2;
-            else if (Input.GetKey(KeyCode.Alpha3)) discreteActionsOut[0] = 3;
-            else if (Input.GetKey(KeyCode.Alpha4)) discreteActionsOut[0] = 4;
-            else if (Input.GetKey(KeyCode.Alpha5)) discreteActionsOut[0] = 5;
-            else if (Input.GetKey(KeyCode.Alpha6)) discreteActionsOut[0] = 6;
-            else if (Input.GetKey(KeyCode.Alpha7)) discreteActionsOut[0] = 7;
-            else if (Input.GetKey(KeyCode.Alpha8)) discreteActionsOut[0] = 8;
-            else if (Input.GetKey(KeyCode.Alpha9)) discreteActionsOut[0] = 9;
-            else if (Input.GetKey(KeyCode.Q)) discreteActionsOut[0] = 10;
-            else if (Input.GetKey(KeyCode.W)) discreteActionsOut[0] = 11;
-            else if (Input.GetKey(KeyCode.E)) discreteActionsOut[0] = 12;
-            else if (Input.GetKey(KeyCode.R)) discreteActionsOut[0] = 13;
-            else if (Input.GetKey(KeyCode.T)) discreteActionsOut[0] = 14;
-            else if (Input.GetKey(KeyCode.Y)) discreteActionsOut[0] = 15;
-            else if (Input.GetKey(KeyCode.U)) discreteActionsOut[0] = 16;
-            else if (Input.GetKey(KeyCode.I)) discreteActionsOut[0] = 17;
-            else if (Input.GetKey(KeyCode.O)) discreteActionsOut[0] = 18;
-            else if (Input.GetKey(KeyCode.P)) discreteActionsOut[0] = 19;
-            else if (Input.GetKey(KeyCode.A)) discreteActionsOut[0] = 20;
-            else discreteActionsOut[0] = -1;
-        }
-        else
-        {
-            int min = 1000;
-            int action = -1;
-            for (int i = 0; i < flagCount; i++)
-            {
-                if (flagVisited[i] < min)
+                time = UnityEngine.Random.Range(0, maxdist);
+                if (UnityEngine.Random.Range(0, 1.0f) < (float)GetTrivariateGuassian(userMean3.x, 5, userMean3.y, 10 * maxdist / maxcount, userMean3.z, 10 * maxdist / maxcount, visited, dist, time) / (maxGaus * 2))
                 {
-                    action = i;
-                    min = flagVisited[i];
+                    userLog3[count] = new Vector3(dist / maxdist, (float)visited / maxcount, time / maxdist);
+                    count++;
                 }
             }
-            discreteActionsOut[0] = action;
+            else
+            {
+
+                if (UnityEngine.Random.Range(0, 1.0f) < (float)GetBivariateGuassian(userMean.x, 5, userMean.y, 10 * maxdist / maxcount, visited, dist, 0) / (maxGaus * 2))
+                {
+                    userLog[count] = new Vector2((float)visited / maxcount, dist / maxdist);
+                    count++;
+                }
+            }
         }
     }
-    public float rew;
+
+
+    int logcount = 0;
+    public void addLog3(int visit, float dist, float dur)
+    {
+        userLog3[logcount] = new Vector3(dist / maxdist, visit / maxcount, dur / maxdist);
+        logcount++;
+        if (logcount == logLen)
+        {
+            logcount = 0;
+        }
+    }
+
+    public float maxdist = 100 * Mathf.Sqrt(2);
+
+    public int maxcount;
+    public static double GetBivariateGuassian(double muX, double sigmaX, double muY, double sigmaY, double x, double y, double rho = 0)
+    {
+        var sigmaXSquared = Math.Pow(sigmaX, 2);
+        var sigmaYSquared = Math.Pow(sigmaY, 2);
+
+        var dX = x - muX;
+        var dY = y - muY;
+
+        var exponent = -0.5;
+        var normaliser = 2 * Math.PI * sigmaX * sigmaY;
+        if (rho != 0)
+        {
+            normaliser *= Math.Sqrt(1 - Math.Pow(rho, 2));
+            exponent /= 1 - Math.Pow(rho, 2);
+        }
+
+        var sum = Math.Pow(dX, 2) / sigmaXSquared;
+        sum += Math.Pow(dY, 2) / sigmaYSquared;
+        sum -= 2 * rho * dX * dY / (sigmaX * sigmaY);
+
+        exponent *= sum;
+
+        return Math.Exp(exponent) / normaliser;
+    }
+
+    public static double GetTrivariateGuassian(double muX, double sigmaX, double muY, double sigmaY, double muZ, double sigmaZ, double x, double y, double z)
+    {
+        var dX = x - muX;
+        var dY = y - muY;
+        var dZ = z - muZ;
+
+        var exponent = Math.Pow(dX, 2) * sigmaY * sigmaZ + Math.Pow(dY, 2) * sigmaX * sigmaZ + Math.Pow(dZ, 2) * sigmaX * sigmaY;
+        exponent *= (-1 / (2 * sigmaX * sigmaY * sigmaZ));
+        var normaliser = Math.Pow(2 * Math.PI, 1.5) * Math.Sqrt(sigmaX * sigmaY * sigmaZ);
+
+        return Math.Exp(exponent) / normaliser;
+    }
+
+    public double rew;
+
+
+    public TMP_Text targetText;
+
+    public override void OnActionReceived(ActionBuffers actionBuffers)
+    {
+        var count = (actionBuffers.ContinuousActions[0] + 1) / 2 * maxcount;
+        var dist = (actionBuffers.ContinuousActions[1] + 1) / 2 * maxdist;
+        var time = (actionBuffers.ContinuousActions[2] + 1) / 2 * maxdist;
+
+        rew = Math.Sqrt(Math.Pow(userMean3.x - count, 2) + Math.Pow(userMean3.y - dist, 2) + Math.Pow(userMean3.z - time, 2)) / Math.Sqrt(Math.Pow(maxcount, 2) + Math.Pow(maxdist, 2) + Math.Pow(maxdist, 2));
+        rew = 1 - rew;
+
+        GameManager.Instance.updateFlagDist();
+
+        Debug.Log(count + "\n" + dist + "\n" + time);
+
+        foreach (Flag flag in GameManager.Instance.flags)
+        {
+            if (trivariate)
+            {
+                flag.fitness = Vector3.Distance(new Vector3(flag.visited, flag.dist, flag.time), new Vector3(count, dist, time));
+            }
+        }
+        GameManager.Instance.flagFitness = GameManager.Instance.flags.OrderBy(v => v.fitness).ThenBy(v => v.dist).ToArray<Flag>();
+
+        AddReward((float)rew);
+
+        if (targetText != null)
+        {
+            targetText.text = GameManager.Instance.placeNames[GameManager.Instance.flagFitness[0].id];
+            Debug.Log(GameManager.Instance.txtIdx);
+            GameManager.Instance.curQuests[GameManager.Instance.txtIdx - 1] = GameManager.Instance.flagFitness[0].id;
+            GameManager.Instance.nextRec();
+
+        }
+
+
+
+
+        return;
+
+    }
+
 
 }

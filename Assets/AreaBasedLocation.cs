@@ -22,7 +22,7 @@ public class AreaBasedLocation : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.locationUI.text = realLocation;
-            GameManager.Instance.RecVisited[locID] += 1;
+            GameManager.Instance.flags[locID].visited += 1;
         }
         GameManager.Instance.req.CheckQuestSuccess();
     }
@@ -31,12 +31,12 @@ public class AreaBasedLocation : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.locationUI.text = "복도";
-            for(int i = 0 ; i < 8 ;i++)
+            for (int i = 0; i < 8; i++)
             {
-                Debug.Log(GameManager.Instance.RecVisited[i]);
+                Debug.Log(GameManager.Instance.flags[i].visited);
             }
         }
         GameManager.Instance.req.CheckQuestSuccess();
-        GameManager.Instance.recAgent.updateFlags(locID);
+
     }
 }
