@@ -1534,6 +1534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: T-Rex
       objectReference: {fileID: 0}
+    - target: {fileID: 100142, guid: 486f3e24acc7009489f29b2029d8858c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400142, guid: 486f3e24acc7009489f29b2029d8858c, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -14151,7 +14155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1058012090
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18084,7 +18088,7 @@ GameObject:
   - component: {fileID: 1422297024}
   - component: {fileID: 1422297023}
   m_Layer: 5
-  m_Name: Level Select
+  m_Name: Recommend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18111,7 +18115,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -103, y: -45}
+  m_AnchoredPosition: {x: -41.8, y: -45}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1422297023
@@ -28785,7 +28789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2838578333778665051
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29826,6 +29830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: QuestNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018491934450760394, guid: 7a3035fc5bc02b44b8c8257b01f1e56b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7229215985098081489, guid: 7a3035fc5bc02b44b8c8257b01f1e56b,
         type: 3}
