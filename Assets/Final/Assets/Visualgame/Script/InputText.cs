@@ -90,7 +90,7 @@ public class InputText : MonoBehaviour
     IEnumerator detect_verb()
     {
         Debug.Log("detecting verb");
-        string url = "http://13.124.152.251:5000/verb";
+        string url = "http://3.37.129.107:5000/verb";
         Question q = new Question();
         q.question = text;
         string question_data = JsonUtility.ToJson(q);
@@ -139,7 +139,7 @@ public class InputText : MonoBehaviour
     IEnumerator webRequestGet()
     {
         //웹서버 url
-        string url = "http://13.124.152.251:5000/vqa";//url 생성
+        string url = "http://3.37.129.107:5000/vqa";//url 생성
         Question q = new Question();
         q.question = text;
         string question_data = JsonUtility.ToJson(q);

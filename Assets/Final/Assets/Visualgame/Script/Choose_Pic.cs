@@ -135,9 +135,9 @@ public class Choose_Pic : MonoBehaviour
 
         time_slide.transform.GetComponent<Slider>().value = 240;
         time_slide.transform.GetComponent<TimeSlider>().staging = true;
-        StartCoroutine(GetRequest_reload("http://13.124.152.251:5000/reload"));
+        StartCoroutine(GetRequest_reload("http://3.37.129.107:5000/reload"));
         Debug.Log("reload");
-        StartCoroutine(GetRequest("http://13.124.152.251:5000/caption"));
+        StartCoroutine(GetRequest("http://3.37.129.107:5000/caption"));
 
 
 

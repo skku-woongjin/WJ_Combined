@@ -66,8 +66,16 @@ public class Talking_NPC_Area : MonoBehaviour
     public void NPC_Talking(string text)
     {
         chatmanager.GetComponent<ChatManager>().Chat(false, text, "");
-        TTS_Audio.GetComponent<TTS>().setText(text);
         transform.parent.GetComponent<SaySomething>().say(text);
+        if(text.Contains(")")){
+            int startIdx = text.IndexOf(")");
+
+            string splitStr = text.Substring(startIdx + 1); // google.com
+            text=splitStr;
+        }
+        
+        TTS_Audio.GetComponent<TTS>().setText(text);
+        
     }
     private void OnTriggerExit(Collider other)
     {

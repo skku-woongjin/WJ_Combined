@@ -45,8 +45,8 @@ public class ChatManager : MonoBehaviour
         bool isBottom = scrollbar.value <= 0.00001f;
 
         AreaScript Area = Instantiate(isSend ? YellowArea : WhiteArea, ContentRect.transform).GetComponent<AreaScript>();
-        // Area.transform.SetParent(ContentRect.transform, false);
-        // Area.BoxRect.sizeDelta = new Vector2(300, Area.BoxRect.sizeDelta.y);
+        Area.transform.SetParent(ContentRect.transform, false);
+        Area.BoxRect.sizeDelta = new Vector2(300, Area.BoxRect.sizeDelta.y);
         if (text.Length > 11)
         {
             text = text.Insert(10, "\n");
@@ -60,7 +60,7 @@ public class ChatManager : MonoBehaviour
             text = text.Insert(30, "\n");
         }
         Area.TextRect.GetComponent<TMP_Text>().text = text;
-        // Fit(Area.BoxRect);
+        Fit(Area.BoxRect);
 
         StartCoroutine(rebuild(ContentRect));
 
