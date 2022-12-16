@@ -97,7 +97,6 @@ MonoBehaviour:
   TextRect: {fileID: 4344054070409524658}
   Tail: {fileID: 0}
   UserText: {fileID: 0}
-  UserImage: {fileID: 0}
   User: 
 --- !u!1 &3783014000629173973
 GameObject:
