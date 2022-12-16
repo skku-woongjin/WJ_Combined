@@ -37,6 +37,7 @@ public class SaySomething : MonoBehaviour
             transform.parent.GetComponent<ConvGroup>().totalChat += 1;
         if (censor)
         {
+
             StartCoroutine(GameManager.Instance.req.Upload((returnval) =>
             {
                 if (returnval)
@@ -60,6 +61,7 @@ public class SaySomething : MonoBehaviour
         }
         else
         {
+
             bubble.GetComponentInChildren<TMP_Text>().text = line;
             StartCoroutine(rebuild(bubble.GetComponent<RectTransform>()));
             bubble.SetActive(true);

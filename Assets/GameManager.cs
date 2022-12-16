@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
         GameManager.Instance.questGiver = idleAgent.GetComponent<SaySomething>();
         GameManager.Instance.req.NewQuest(curQuest);
         GameManager.Instance.idleAgent.stopStart();
-        transform.rotation = Quaternion.LookRotation(-idleAgent.removY(transform.position - GameManager.Instance.owner.position));
+        GameManager.Instance.idleAgent.transform.rotation = Quaternion.LookRotation(-idleAgent.removY(transform.position - GameManager.Instance.owner.position));
         idleAgent.state = IdleAgent.States.say;
         GameManager.Instance.idleAgent.Invoke("lead", 5f);
 
@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour
         destinations = destParent.GetComponentsInChildren<Transform>();
         flags = new Flag[flagCount];
         curQuests = new int[3];
+        curQuests[2] = 7;
 
         for (int i = 0; i < flagCount; i++)
         {

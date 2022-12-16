@@ -49,13 +49,6 @@ public class ConvGroup : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-
-        }
-    }
     public void changeSphere()
     {
         hatePercent = (hateChat * 100 / totalChat);
@@ -120,9 +113,11 @@ public class ConvGroup : MonoBehaviour
         {
             for (int i = 0; i < data_Dialog.Count; i++)
             {
-                if(i==3 || i ==4){
-                    hateChat ++;
+                if (i == 3 || i == 4)
+                {
+                    hateChat++;
                 }
+                // Debug.Log(data_Dialog[i]["line"].ToString());
                 users[Int32.Parse(data_Dialog[i]["user"].ToString())].say(data_Dialog[i]["line"].ToString());
                 yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(2, 3.5f));
             }

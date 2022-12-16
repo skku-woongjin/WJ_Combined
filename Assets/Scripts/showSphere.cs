@@ -19,10 +19,12 @@ public class showSphere : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
+
         if (other.gameObject.CompareTag("Player"))
         {
             if (!transform.parent.GetComponent<ConvGroup>().isbad)
             {
+
                 GameManager.Instance.curGroup = transform.parent.GetComponent<ConvGroup>();
                 GameManager.Instance.owner.GetComponent<JoinGroup>().join();
             }

@@ -5376,18 +5376,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 480036070}
-        m_TargetAssemblyTypeName: IdleAgent, Assembly-CSharp
-        m_MethodName: lead
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &356360934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23930,7 +23918,7 @@ PrefabInstance:
     - target: {fileID: 2891126911528709077, guid: c80cfdd2879ab463eaa06c167b1eab20,
         type: 3}
       propertyPath: censor
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2891126911528709077, guid: c80cfdd2879ab463eaa06c167b1eab20,
         type: 3}
@@ -24055,7 +24043,7 @@ PrefabInstance:
     - target: {fileID: 5979895732542239677, guid: c80cfdd2879ab463eaa06c167b1eab20,
         type: 3}
       propertyPath: censor
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023468550669947092, guid: c80cfdd2879ab463eaa06c167b1eab20,
         type: 3}
@@ -24162,6 +24150,26 @@ PrefabInstance:
       propertyPath: convFilename
       value: BadConv1
       objectReference: {fileID: 0}
+    - target: {fileID: 6023468551594472572, guid: c80cfdd2879ab463eaa06c167b1eab20,
+        type: 3}
+      propertyPath: users.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023468551594472572, guid: c80cfdd2879ab463eaa06c167b1eab20,
+        type: 3}
+      propertyPath: users.Array.data[0]
+      value: 
+      objectReference: {fileID: 2061922834}
+    - target: {fileID: 6023468551594472572, guid: c80cfdd2879ab463eaa06c167b1eab20,
+        type: 3}
+      propertyPath: users.Array.data[1]
+      value: 
+      objectReference: {fileID: 1941565265}
+    - target: {fileID: 6023468551594472572, guid: c80cfdd2879ab463eaa06c167b1eab20,
+        type: 3}
+      propertyPath: users.Array.data[2]
+      value: 
+      objectReference: {fileID: 1941565263}
     - target: {fileID: 6023468551594472575, guid: c80cfdd2879ab463eaa06c167b1eab20,
         type: 3}
       propertyPath: m_Name
@@ -24180,7 +24188,7 @@ PrefabInstance:
     - target: {fileID: 6929636171082814082, guid: c80cfdd2879ab463eaa06c167b1eab20,
         type: 3}
       propertyPath: censor
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6929636171082814085, guid: c80cfdd2879ab463eaa06c167b1eab20,
         type: 3}
@@ -24247,6 +24255,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1941565259}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1941565263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6929636171082814082, guid: c80cfdd2879ab463eaa06c167b1eab20,
+    type: 3}
+  m_PrefabInstance: {fileID: 1941565259}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab71c52903404b72a3d26304ec1bff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1941565265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5979895732542239677, guid: c80cfdd2879ab463eaa06c167b1eab20,
+    type: 3}
+  m_PrefabInstance: {fileID: 1941565259}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab71c52903404b72a3d26304ec1bff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1946191578
 GameObject:
   m_ObjectHideFlags: 0
@@ -24332,7 +24364,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1946191582}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 874421060}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: setCurQuest
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1946191582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26248,6 +26292,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2061922834 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2891126911528709077, guid: c80cfdd2879ab463eaa06c167b1eab20,
+    type: 3}
+  m_PrefabInstance: {fileID: 1941565259}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab71c52903404b72a3d26304ec1bff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2078637740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4173061018674892, guid: f6f3b50b60da7914e947c757e6022355,
