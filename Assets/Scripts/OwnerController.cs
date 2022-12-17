@@ -129,13 +129,14 @@ public class OwnerController : MonoBehaviour
     {
         if (GameManager.Instance.ingroup || GameManager.Instance.idleAgent.state != IdleAgent.States.say)
         {
-            // if (Input.GetKeyDown(KeyCode.Space))
-            // {
-            //     if(req.getLocationEqual() && req.getQuestGen() && req.questType == 1){
-            //         GameManager.Instance.checkJump = true;
-            //     }
-            //     rb.AddForce(bound.up * speed * 1000, ForceMode.Impulse);
-            // }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                if (req.getLocationEqual() && req.getQuestGen() && req.questType == 1)
+                {
+                    GameManager.Instance.checkJump = true;
+                }
+                rb.AddForce(bound.up * speed * 1000, ForceMode.Impulse);
+            }
             // if (Input.GetKeyDown(KeyCode.Z))
             // {
             //     rb.AddForce(bound.up * speed * 10000, ForceMode.Impulse);
