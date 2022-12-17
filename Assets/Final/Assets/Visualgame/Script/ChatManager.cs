@@ -14,16 +14,8 @@ public class ChatManager : MonoBehaviour
     public GameObject YellowArea, WhiteArea;
     public RectTransform ContentRect;
     public Scrollbar scrollbar;
-
+    
     AreaScript LastArea;
-
-    void Start()
-    {
-        //babyscript=GameObject.Find("GameManager").transform.GetComponent<Baby_talk>(); //babyscript로 가서 baby목소리 가져오려는 작업
-        //StartCoroutine(GetBaby("http://13.124.152.251:5000/baby"));
-
-    }
-
 
 
     // Update is called once per frame
@@ -32,45 +24,30 @@ public class ChatManager : MonoBehaviour
 
     }
 
-
-
-
-
-
-    int question_count = 0;
-
+    //채팅함수(user와 AI의 채팅 모두 구현)
     public void Chat(bool isSend, string text, string user)
     {
+        
         if (text.Trim() == "") return;
         bool isBottom = scrollbar.value <= 0.00001f;
 
         AreaScript Area = Instantiate(isSend ? YellowArea : WhiteArea, ContentRect.transform).GetComponent<AreaScript>();
         Area.transform.SetParent(ContentRect.transform, false);
         Area.BoxRect.sizeDelta = new Vector2(300, Area.BoxRect.sizeDelta.y);
-        if (text.Length > 11)
-        {
-            text = text.Insert(10, "\n");
-        }
-        if (text.Length > 21)
-        {
-            text = text.Insert(20, "\n");
-        }
-        if (text.Length > 31)
-        {
-            text = text.Insert(30, "\n");
-        }
+
         Area.TextRect.GetComponent<TMP_Text>().text = text;
+        if(isSend){
+            transform.gameObject.GetComponent<STTS>().setvoice(false);
+        }
+        else{
+            transform.gameObject.GetComponent<STTS>().setvoice(true);
+        }
+        transform.gameObject.GetComponent<STTS>().setText(text);
+        
+        
         Fit(Area.BoxRect);
 
         StartCoroutine(rebuild(ContentRect));
-
-
-
-
-        //사용자가 질문할 때
-
-
-
 
         // 두 줄 이상이면 크기를 줄여가면서, 한 줄이 아래로 내려가면 바로 전 크기를 대입 
         float X = Area.TextRect.sizeDelta.x + 42;
@@ -112,6 +89,8 @@ public class ChatManager : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(obj);
 
     }
+    
+
 
 }
 

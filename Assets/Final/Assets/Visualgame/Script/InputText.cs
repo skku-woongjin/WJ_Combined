@@ -26,18 +26,6 @@ public class InputText : MonoBehaviour
 
 
     string text;
-    void Start()
-    {
-
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     int count;
 
@@ -160,6 +148,7 @@ public class InputText : MonoBehaviour
         }
         else
         {
+            yield return new WaitForSecondsRealtime(1);
             chatmanager.Chat(false, req.downloadHandler.text, "타인");
 
 

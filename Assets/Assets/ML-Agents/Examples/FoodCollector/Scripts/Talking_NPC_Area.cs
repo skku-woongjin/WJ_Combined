@@ -14,10 +14,6 @@ public class Talking_NPC_Area : MonoBehaviour
     public GameObject chat_log;
     
     
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -45,7 +41,6 @@ public class Talking_NPC_Area : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             In_Area=true;
-            //chat_log.SetActive(true);
             Debug.Log("Enter area");
             if (comfort)
             {
