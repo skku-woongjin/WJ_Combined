@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         idleAgent.GetComponent<SaySomething>().say("퀘스트가 나올거야!");
         GameManager.Instance.questGiver = idleAgent.GetComponent<SaySomething>();
         //TODO 추천하기 
-        // GameManager.Instance.recAgent.recommend();
+        GameManager.Instance.req.NewQuest();
     }
 
     public void recommend(int meanVis, float meanDist, float meanTime)

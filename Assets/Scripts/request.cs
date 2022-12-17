@@ -47,13 +47,13 @@ public class request : MonoBehaviour
         {
             curloc = Random.Range(0, locationKeyword.Length);
         }
-        locationQuest = locationKeyword[curloc];
+        locationQuest = GameManager.Instance.placeNames[curloc];
         GameManager.Instance.curQuest = curloc;
         //actionQuest = actionKeyword[Random.Range(0, actionKeyword.Length)];
         Debug.Log("뽑힌 Keywords : " + locationQuest);
 
         if (questServer)
-            StartCoroutine(UploadKeyword(locationQuest));
+            StartCoroutine(UploadKeyword(locationQuest, true));
         questIsGenerated = true;
         GameManager.Instance.idleAgent.GetComponent<SaySomething>().say("퀘스트를 기다리는중이야!");
     }
@@ -66,7 +66,7 @@ public class request : MonoBehaviour
         Debug.Log("뽑힌 Keywords : " + locationQuest);
         if (questServer)
         {
-            StartCoroutine(UploadKeyword(locationQuest));
+            StartCoroutine(UploadKeyword(locationQuest, false));
             GameManager.Instance.questGiver.say("퀘스트를 기다리는중이야!");
         }
         else
@@ -165,7 +165,7 @@ public class request : MonoBehaviour
         }
     }
     public TMP_Text keyWords;
-    public IEnumerator UploadKeyword(string line)
+    public IEnumerator UploadKeyword(string line, bool showOkNo)
     {
         //line -> 보낼 데이터
         Quest body = new Quest();
@@ -224,7 +224,8 @@ public class request : MonoBehaviour
             GameManager.Instance.QuestUI.SetActive(true);
             keyWords.text = "키워드: " + keywords.Replace("*", ",").Replace("0", "").Replace("None", "").Replace("n개", "").Replace("n번", "").Replace("n회", "");
             //TODO - 좋아 싫어 띄우기 
-            // GameManager.Instance.idleAgent.Invoke("showOkNoQuest", 0.5f);
+            if (showOkNo)
+                GameManager.Instance.idleAgent.Invoke("showOkNoQuest", 0.5f);
         }
         IEnumerator questReach()
         {
