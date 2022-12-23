@@ -145,17 +145,13 @@ public class GameManager : MonoBehaviour
 
     public void updateFlagDist()
     {
-        string debug = "";
+
         foreach (Flag flag in flags)
         {
             flag.dist = Vector3.Distance(flag.pos, owner.transform.position);
-            debug += placeNames[flag.id] + "\n";
-            debug += "dist: " + flag.dist + "\n";
-            debug += "posd: " + flag.pos + "\n";
-            debug += "vis:" + flag.visited + "\n\n";
         }
 
-        Debug.Log(debug);
+
 
     }
 

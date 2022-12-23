@@ -152,7 +152,6 @@ public class RecommendAgent : Agent
 
         GameManager.Instance.updateFlagDist();
 
-        Debug.Log(count + "\n" + dist + "\n" + time);
 
         foreach (Flag flag in GameManager.Instance.flags)
         {
@@ -168,7 +167,6 @@ public class RecommendAgent : Agent
         if (targetText != null)
         {
             targetText.text = GameManager.Instance.placeNames[GameManager.Instance.flagFitness[0].id];
-            Debug.Log(GameManager.Instance.txtIdx);
             GameManager.Instance.curQuests[GameManager.Instance.txtIdx - 1] = GameManager.Instance.flagFitness[0].id;
             GameManager.Instance.nextRec();
 

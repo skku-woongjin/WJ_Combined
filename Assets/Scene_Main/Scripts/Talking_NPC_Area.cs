@@ -12,8 +12,8 @@ public class Talking_NPC_Area : MonoBehaviour
     bool In_Area = false;
     public GameObject chatmanager;
     public GameObject chat_log;
-    
-    
+
+
 
     // Update is called once per frame
     void Update()
@@ -21,16 +21,18 @@ public class Talking_NPC_Area : MonoBehaviour
         //NPC 영역안에 있고 유저가 텍스트를 전송했을 경우
         if (In_Area && GameManager.Instance.userText_set)
         {
-            if(Jurassic){
+            if (Jurassic)
+            {
                 Debug.Log("영역안에 있음");
                 dialogflow.GetComponent<diag>().solar_start(GameManager.Instance.userText);
             }
-            else if(comfort){
+            else if (comfort)
+            {
                 dialogflow.GetComponent<diag>().comfort_Start(GameManager.Instance.userText);
             }
-            
-            
-            GameManager.Instance.userText_set=false;
+
+
+            GameManager.Instance.userText_set = false;
         }
     }
 
@@ -40,8 +42,8 @@ public class Talking_NPC_Area : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            In_Area=true;
-            Debug.Log("Enter area");
+            In_Area = true;
+            // Debug.Log("Enter area");
             if (comfort)
             {
                 text = "저는 위로로봇 힐링입니다. 고민거리가 있으신가요?";
@@ -62,22 +64,23 @@ public class Talking_NPC_Area : MonoBehaviour
     {
         chatmanager.GetComponent<ChatManager>().Chat(false, text, "");
         transform.parent.GetComponent<SaySomething>().say(text);
-        if(text.Contains(")")){
+        if (text.Contains(")"))
+        {
             int startIdx = text.IndexOf(")");
 
             string splitStr = text.Substring(startIdx + 1); // google.com
-            text=splitStr;
+            text = splitStr;
         }
-        
+
         TTS_Audio.GetComponent<TTS>().setText(text);
-        
+
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            In_Area=false;
-            Debug.Log("Exit area");
+            In_Area = false;
+            // Debug.Log("Exit area");
             chat_log.SetActive(false);
         }
     }

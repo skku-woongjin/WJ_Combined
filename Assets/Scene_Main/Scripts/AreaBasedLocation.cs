@@ -31,10 +31,6 @@ public class AreaBasedLocation : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.locationUI.text = "복도";
-            for (int i = 0; i < 8; i++)
-            {
-                Debug.Log(GameManager.Instance.flags[i].visited);
-            }
         }
         GameManager.Instance.req.CheckQuestSuccess();
 

@@ -12,8 +12,8 @@ public class Parsing : MonoBehaviour
 
         for (int i = 0; i < data_Dialog.Count; i++)
         {
-            Debug.Log(Int32.Parse(data_Dialog[i]["user"].ToString()));
-            Debug.Log(data_Dialog[i]["line"].ToString());
+            // Debug.Log(Int32.Parse(data_Dialog[i]["user"].ToString()));
+            // Debug.Log(data_Dialog[i]["line"].ToString());
         }
     }
 }

@@ -15,7 +15,6 @@ public class AreaBasedScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Enter area");
             foreach (Canvas bubble in transform.parent.GetComponentsInChildren<Canvas>())
             {
                 bubble.gameObject.layer = 5;
@@ -28,7 +27,6 @@ public class AreaBasedScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Exit Area");
             foreach (Canvas bubble in transform.parent.GetComponentsInChildren<Canvas>())
             {
                 bubble.gameObject.layer = 3;

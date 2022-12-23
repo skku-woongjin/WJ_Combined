@@ -285,7 +285,6 @@ public class IdleAgent : Agent
         {
             if (interestingObj != null && collision.collider.gameObject == interestingObj.gameObject)
             {
-                Debug.Log("!!");
                 return;
             }
             colliding = true;

@@ -127,7 +127,7 @@ public class dialogflow : MonoBehaviour
 
     private void start()
     {
-        Debug.Log("plz");
+
         StartCoroutine(MakeRequests());
     }
 
