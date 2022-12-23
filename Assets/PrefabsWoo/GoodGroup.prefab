@@ -613,7 +613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isbad: 0
   UDangTangMat: {fileID: 2100000, guid: 2b7b7b7623acd4d00a41275b4594651f, type: 2}
-  CommonMat: {fileID: 2100000, guid: ecd59def9213741058b969f699d10e8e, type: 2}
+  CommonMat: {fileID: 2100000, guid: 699a08b03cd18489db6488a7ef2ed9cf, type: 2}
   Sphere: {fileID: 6023468552026047396}
   users: []
   convFilename: 
@@ -735,7 +735,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ecd59def9213741058b969f699d10e8e, type: 2}
+  - {fileID: 2100000, guid: 699a08b03cd18489db6488a7ef2ed9cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
