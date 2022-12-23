@@ -365,7 +365,6 @@ public class IdleAgent : Agent
     {
         if (interested)
             endInterest();
-        start = true;
         nav.enabled = true;
         NavMeshHit hit;
         NavMesh.SamplePosition(GameManager.Instance.curGroup.GetComponent<Collider>().ClosestPoint(transform.position), out hit, 100, 1);
@@ -424,7 +423,6 @@ public class IdleAgent : Agent
     public GameObject QuoteCanv;
     public void say()
     {
-        start = true;
         nav.enabled = false;
         interested = false;
         stopStart();
@@ -563,7 +561,7 @@ public class IdleAgent : Agent
     //NOTE update
     #region update
 
-    bool start = false;
+
     void FixedUpdate()
     {
         // if (start)
@@ -641,7 +639,7 @@ public class IdleAgent : Agent
         {
             endInterest();
             StopCoroutine(miauCouroutine);
-            miauing = false;
+
         }
     }
     IEnumerator JustStop;
@@ -692,16 +690,15 @@ public class IdleAgent : Agent
         angrySound.Play();
     }
 
-    bool miauing;
     IEnumerator playInteSound()
     {
-        miauing = true;
+
         while (interested)
         {
             inteSound.Play();
             yield return new WaitForSecondsRealtime(Random.Range(0.6f, 3f));
         }
-        miauing = false;
+
     }
 
     #endregion

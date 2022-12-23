@@ -597,6 +597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonCanv: {fileID: 6023468550669947092}
   UdangCanv: {fileID: 0}
+  GuardBot: {fileID: 0}
   sphere: {fileID: 6023468552026047396}
 --- !u!114 &6023468551594472572
 MonoBehaviour:
@@ -619,7 +620,6 @@ MonoBehaviour:
   canvas: {fileID: 6023468550669947081}
   totalChat: 0
   hateChat: 0
-  hatePercentValueSee: {fileID: 0}
   hatePercent: 0
 --- !u!114 &6023468551594472573
 MonoBehaviour:
@@ -646,25 +646,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5fe0a5219764a6a81a7fba77a7403e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questServer: 0
   questText: {fileID: 0}
   catQuestText: {fileID: 0}
   QuestBtn: {fileID: 0}
   ishate: 0
   quest_panel: {fileID: 0}
   currentLocation: {fileID: 0}
-  actionKeyword:
-  - jump
-  - fly
-  - walk
-  - go
-  - play
-  - find
-  locationKeyword:
-  - Jurassicpark
-  - gamemachine
-  - planetland
-  - playground
-  - castle
+  catCanJump: {fileID: 0}
+  KeywordUI: {fileID: 0}
+  questType: 0
+  keyWords: {fileID: 0}
 --- !u!54 &8879334388762616182
 Rigidbody:
   m_ObjectHideFlags: 0

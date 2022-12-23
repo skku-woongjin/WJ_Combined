@@ -31,7 +31,6 @@ public class Choose_Pic : MonoBehaviour
     public Transform hearts;
 
     public int wrongCount = 0;
-    int i = 0;
 
     public Image large_img;
 
