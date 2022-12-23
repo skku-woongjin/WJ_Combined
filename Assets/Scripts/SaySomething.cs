@@ -18,7 +18,7 @@ public class SaySomething : MonoBehaviour
     {
         camTransform = GameManager.Instance.cam;
         bubbleImg = bubble.GetComponentInChildren<Image>();
-        if (GetComponentInChildren<Animator>() != null)
+        if (GetComponentInChildren<Animator>() != null && HasParameter("ConvSpeed", GetComponentInChildren<Animator>()))
         {
             GetComponentInChildren<Animator>().SetFloat("ConvSpeed", Random.Range(0.2f, 1f));
         }
@@ -141,6 +141,15 @@ public class SaySomething : MonoBehaviour
         bubbleImg.color = Color.white;
 
 
+    }
+
+    bool HasParameter(string paramName, Animator animator)
+    {
+        foreach (AnimatorControllerParameter param in animator.parameters)
+        {
+            if (param.name == paramName) return true;
+        }
+        return false;
     }
 
 }
