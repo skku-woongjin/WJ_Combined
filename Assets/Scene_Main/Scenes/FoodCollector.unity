@@ -4673,6 +4673,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Doggy_1
       objectReference: {fileID: 0}
+    - target: {fileID: 5358272152703243660, guid: 10c397062281aed4790172f6a7d36586,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10c397062281aed4790172f6a7d36586, type: 3}
 --- !u!1 &323160378
@@ -30024,7 +30029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1001 &1499811395289011048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32735,7 +32740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &5989867676278842767
 GameObject:
   m_ObjectHideFlags: 0

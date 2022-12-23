@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public GameObject QuestUI;
     public TMP_Text Coin;
     public int coinVal;
-    public PlayAnims dogPlay;
+
     public bool userText_set;
     public string userText;
     public bool checkReach;
