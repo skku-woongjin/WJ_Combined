@@ -18,8 +18,8 @@
 ### Clone Repository
 
 ```shell script
-$ git clone https://github.com/skku-woongjin/WJ_Combined.git
-$ cd WJ_Combined
+$ git clone https://github.com/skku-woongjin/WJ_Integrated.git
+$ cd WJ_Integrated
 ```
 
 ### How to Run
@@ -135,9 +135,9 @@ Unity Hub에서 프로젝트 경로 추가 후 실행
 
 <br />
 
-- [Assets/Resources](https://github.com/skku-woongjin/WJ_Combined/tree/main/Assets/Resources): 대화 그룹 유저들의 대화 내용 csv 파일들
-- [Assets/Scene_Main](https://github.com/skku-woongjin/WJ_Combined/tree/main/Assets/Scene_Main) : Main Scene 을 구성하는 Asset 모음
-- [Assets/Scene_Main/Recommend_Agent](https://github.com/skku-woongjin/WJ_Combined/tree/main/Assets/Scene_Main/Recommend_Agent) : Main Scene의 추천 모델을 구성하는 Asset모음
-- [Assets/Scene_VisualGame](https://github.com/skku-woongjin/WJ_Combined/tree/main/Assets/Scene_VisualGame) : Visual Game Scene 을 구성하는 Asset 모음
+- [Assets/Resources](https://github.com/skku-woongjin/WJ_Integrated/tree/main/Assets/Resources): 대화 그룹 유저들의 대화 내용 csv 파일들
+- [Assets/Scene_Main](https://github.com/skku-woongjin/WJ_Integrated/tree/main/Assets/Scene_Main) : Main Scene 을 구성하는 Asset 모음
+- [Assets/Scene_Main/Recommend_Agent](https://github.com/skku-woongjin/WJ_Integrated/tree/main/Assets/Scene_Main/Recommend_Agent) : Main Scene의 추천 모델을 구성하는 Asset모음
+- [Assets/Scene_VisualGame](https://github.com/skku-woongjin/WJ_Integrated/tree/main/Assets/Scene_VisualGame) : Visual Game Scene 을 구성하는 Asset 모음
     
 
