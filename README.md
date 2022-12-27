@@ -5,9 +5,6 @@
 
 <img width="850" alt="image" src="https://user-images.githubusercontent.com/121273065/209572423-c305e7c6-f5c0-44c1-b339-9ccef642b49a.png">
 
-## 실행 화면
-
-//TODO AWS HTTP를 입력하는 법 
 
 <br />
 
@@ -39,31 +36,34 @@ Unity Hub에서 프로젝트 경로 추가 후 실행
 .
 ├── README.md
 ├── Assets
-│   ├── Demo
+│   ├── AssetPackage
+│   ├── Logs
+│   ├── Resources
+│   │   ├── BadConv1.csv
+│   │   └── GoodConv1.csv
+│   ├── Scene_Main
+│   │   ├── Animation
 │   │   ├── Materials
-│   │   ├── Models
-│   │   │   ├── Junwon.onnx
-│   │   │   └── getmean_tri.onnx
+│   │   ├── Meshes
 │   │   ├── Prefabs
-│   │   │   ├── Dest.prefab
-│   │   │   ├── Slider.prefab
-│   │   │   ├── TrailPoint.prefab
-│   │   │   ├── dot_agent.prefab
-│   │   │   ├── dot_answer.prefab
-│   │   │   ├── dot_userlog.prefab
-│   │   │   └── user.prefab
+│   │   ├── Recommend_Agent
+│   │   │   ├── Models
+│   │   │   └── Scripts
+│   │   ├── Scenes
+│   │   │   ├── MainScene
+│   │   │   │   └── NavMesh.asset
+│   │   │   ├── MainScene.unity
+│   │   │   └── Start_Scene.unity
 │   │   ├── Scripts
-│   │   │   ├── ClickDetector.cs
-│   │   │   ├── Flag.cs
-│   │   │   ├── GameManager.cs
-│   │   │   ├── JunwonAgent.cs
-│   │   │   ├── ModelOverrider.cs
-│   │   │   ├── RecommendAgent.cs
-│   │   │   ├── TrailEnergyDecrease.cs
-│   │   │   ├── TrailGenerator.cs
-│   │   │   └── TrailPoint.cs
-│   │   └── TrainScene
-│   │       └── NavMesh.asset
+│   │   └── Sprites
+│   ├── Scene_VisualGame
+│   │   ├── Assets
+│   │   │   ├── Font
+│   │   │   ├── Prefabs
+│   │   │   ├── Scenes
+│   │   │   ├── Script
+│   │   │   └── picture
+│   │   └── Packages
 │   ├── ML-Agents
 │   │   └── Timers
 │   └── Plugins
@@ -76,12 +76,9 @@ Unity Hub에서 프로젝트 경로 추가 후 실행
 
 <br />
 
-- [Assets/Demo](https://github.com/skku-woongjin/RecommendAgent_Demo/tree/main/Assets/Demo) : Demo Scene 을 구성하는 Asset 모음
-- [Assets/Demo/Materials](https://github.com/skku-woongjin/RecommendAgent_Demo/tree/main/Assets/Demo/Materials) : 3D 오브젝트에 씌울 Material 모음
-- [Assets/Demo/Models](https://github.com/skku-woongjin/RecommendAgent_Demo/tree/main/Assets/Demo/Models) : 훈련된 모델 모음
-    - Junwon.onnx: 비교 모델, #visit, duration, distance 가 모두 높은 장소 추천
-    - getmean_tri.onnx: [RecommendAgent_Train]()을 통해 훈련된 모델
-- [Assets/Demo/Scripts](https://github.com/skku-woongjin/RecommendAgent_Demo/tree/main/Assets/Demo/Scripts) : C# 스크립트 모음
+- [Assets/Scene_Main](https://github.com/skku-woongjin/WJ_Combined/tree/main/Assets/Scene_Main) : Main Scene 을 구성하는 Asset 모음
+- [Assets/Scene_Main/Recommend_Agent](https://github.com/skku-woongjin/WJ_Combined/tree/main/Assets/Scene_Main/Recommend_Agent) : Main Scene의 추천 모델을 구성하는 Asset모음
+- [Assets/Scene_VisualGame](https://github.com/skku-woongjin/WJ_Combined/tree/main/Assets/Scene_VisualGame) : Visual Game Scene 을 구성하는 Asset 모음
 
 ## Components
 
