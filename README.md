@@ -1,4 +1,4 @@
-# Combined Demo Project
+# Integrated Demo Project
 
 > 통합 데모를 위한 메타버스를 유니티 프로젝트로 구현하였습니다. <br/>
 > 프로젝트의 모든 AI 모델이 메타버스에서 활용되는 예시를 볼 수 있습니다. 
