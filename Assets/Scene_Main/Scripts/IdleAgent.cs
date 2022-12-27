@@ -42,7 +42,7 @@ public class IdleAgent : Agent
     public float turnSpeed = 300;
     public float moveSpeed = 2;
     public float rew;
-    public Transform capsule;
+
     EnvironmentParameters m_ResetParams;
 
     public override void Initialize()
@@ -369,7 +369,6 @@ public class IdleAgent : Agent
         NavMesh.SamplePosition(GameManager.Instance.curGroup.GetComponent<Collider>().ClosestPoint(transform.position), out hit, 100, 1);
         Vector3 finalPosition = hit.position;
         nav.stoppingDistance = 1f;
-        capsule.transform.position = finalPosition;
         state = States.enterGroup;
         if (GameManager.Instance.curGroup != null)
             nav.SetDestination(removY(finalPosition));
