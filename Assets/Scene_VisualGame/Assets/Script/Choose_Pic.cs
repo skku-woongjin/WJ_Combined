@@ -125,6 +125,7 @@ public class Choose_Pic : MonoBehaviour
     public GameObject time_slide;
 
     public TMP_Text timeText; //Time 표시할 text
+    public ChatManager chatManager;
     public void getImgs()
     {
         //Debug.Log("get_image 부름");
@@ -134,9 +135,9 @@ public class Choose_Pic : MonoBehaviour
 
         time_slide.transform.GetComponent<Slider>().value = 240;
         time_slide.transform.GetComponent<TimeSlider>().staging = true;
-        StartCoroutine(GetRequest_reload("http://3.37.129.107:5000/reload"));
+        StartCoroutine(GetRequest_reload(chatManager.vqaURL + "/reload"));
         Debug.Log("reload");
-        StartCoroutine(GetRequest("http://3.37.129.107:5000/caption"));
+        StartCoroutine(GetRequest(chatManager.vqaURL + "/caption"));
 
 
 

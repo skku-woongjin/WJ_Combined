@@ -9178,15 +9178,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5fe0a5219764a6a81a7fba77a7403e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questURL: http://52.79.234.232:5000/quest_gen
+  hateURL: http://52.79.197.23:5000/prediction
+  comfortURL: http://52.78.209.184:5000/unity_answer
+  wikiURL: http://52.78.55.230:5000/answer
   questServer: 1
   questText: {fileID: 46042522}
-  catQuestText: {fileID: 0}
-  QuestBtn: {fileID: 0}
   ishate: 0
-  quest_panel: {fileID: 0}
   currentLocation: {fileID: 718195623}
   catCanJump: {fileID: 3166231814029863959}
-  KeywordUI: {fileID: 0}
   questType: 0
   keyWords: {fileID: 0}
 --- !u!1 &876025979 stripped
@@ -17518,15 +17518,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5fe0a5219764a6a81a7fba77a7403e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questURL: 
+  hateURL: 
+  comfortURL: 
+  wikiURL: 
   questServer: 0
   questText: {fileID: 0}
-  catQuestText: {fileID: 0}
-  QuestBtn: {fileID: 0}
   ishate: 0
-  quest_panel: {fileID: 0}
   currentLocation: {fileID: 0}
   catCanJump: {fileID: 0}
-  KeywordUI: {fileID: 0}
   questType: 0
   keyWords: {fileID: 0}
 --- !u!1 &1792238443

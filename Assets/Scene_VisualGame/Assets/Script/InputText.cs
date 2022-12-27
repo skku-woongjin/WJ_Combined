@@ -78,7 +78,7 @@ public class InputText : MonoBehaviour
     IEnumerator detect_verb()
     {
         Debug.Log("detecting verb");
-        string url = "http://3.37.129.107:5000/verb";
+        string url = chatmanager.vqaURL + "/verb";
         Question q = new Question();
         q.question = text;
         string question_data = JsonUtility.ToJson(q);
@@ -127,7 +127,7 @@ public class InputText : MonoBehaviour
     IEnumerator webRequestGet()
     {
         //웹서버 url
-        string url = "http://3.37.129.107:5000/vqa";//url 생성
+        string url = chatmanager.vqaURL + "/vqa";//url 생성
         Question q = new Question();
         q.question = text;
         string question_data = JsonUtility.ToJson(q);
