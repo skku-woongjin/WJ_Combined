@@ -55,7 +55,6 @@ public class Talking_NPC_Area : MonoBehaviour
             NPC_Talking(text);
             In_Area = true;
 
-
         }
     }
 

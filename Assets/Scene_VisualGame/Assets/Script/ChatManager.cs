@@ -14,7 +14,8 @@ public class ChatManager : MonoBehaviour
     public GameObject YellowArea, WhiteArea;
     public RectTransform ContentRect;
     public Scrollbar scrollbar;
-    
+    public string vqaURL;
+
     AreaScript LastArea;
 
 
@@ -27,7 +28,7 @@ public class ChatManager : MonoBehaviour
     //채팅함수(user와 AI의 채팅 모두 구현)
     public void Chat(bool isSend, string text, string user)
     {
-        
+
         if (text.Trim() == "") return;
         bool isBottom = scrollbar.value <= 0.00001f;
 
@@ -36,15 +37,17 @@ public class ChatManager : MonoBehaviour
         Area.BoxRect.sizeDelta = new Vector2(300, Area.BoxRect.sizeDelta.y);
 
         Area.TextRect.GetComponent<TMP_Text>().text = text;
-        if(isSend){
+        if (isSend)
+        {
             transform.gameObject.GetComponent<STTS>().setvoice(false);
         }
-        else{
+        else
+        {
             transform.gameObject.GetComponent<STTS>().setvoice(true);
         }
         transform.gameObject.GetComponent<STTS>().setText(text);
-        
-        
+
+
         Fit(Area.BoxRect);
 
         StartCoroutine(rebuild(ContentRect));
@@ -89,7 +92,7 @@ public class ChatManager : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(obj);
 
     }
-    
+
 
 
 }

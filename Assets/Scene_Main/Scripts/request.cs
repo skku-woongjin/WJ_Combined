@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class Chat
 {
     public string chat;
@@ -16,12 +17,14 @@ public class Quest
 
 public class request : MonoBehaviour
 {
+    public string questURL;
+    public string hateURL;
+    public string comfortURL;
+    public string wikiURL;
     public bool questServer;
     public TMP_Text questText;
-    public TMP_Text catQuestText;
-    public Button QuestBtn;
     public bool ishate = false;
-    public GameObject quest_panel;
+
     private string locationQuest;
     private string actionQuest;
     public TMP_Text currentLocation;
@@ -29,7 +32,7 @@ public class request : MonoBehaviour
     public Animator catCanJump;
     //public string[] actionKeyword = { "jump", "fly", "walk", "go", "play", "find" };
     private string[] locationKeyword = { "교실", "복도", "쥐라기 파크", "도서관", "갤러리", "옥상", "태양계" };
-    public GameObject KeywordUI;
+
     public int questType;
     void Start()
     {
@@ -136,7 +139,7 @@ public class request : MonoBehaviour
         string bodyData = JsonUtility.ToJson(body);
         //Debug.Log(bodyData);
         // var postData = System.Text.Encoding.UTF8.GetBytes(bodyData);
-        var req = new UnityWebRequest("http://52.79.197.23:5000/prediction", "POST");
+        var req = new UnityWebRequest(hateURL, "POST");
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(bodyData);
         req.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
         req.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
@@ -173,7 +176,7 @@ public class request : MonoBehaviour
         string bodyData = JsonUtility.ToJson(body);
         //Debug.Log(bodyData);
         // var postData = System.Text.Encoding.UTF8.GetBytes(bodyData);
-        var req = new UnityWebRequest("http://52.79.234.232:5000/quest_gen", "POST");
+        var req = new UnityWebRequest(questURL, "POST");
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(bodyData);
         req.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
         req.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();

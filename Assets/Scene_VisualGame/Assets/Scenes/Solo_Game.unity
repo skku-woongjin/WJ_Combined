@@ -8947,6 +8947,7 @@ MonoBehaviour:
     type: 3}
   ContentRect: {fileID: 313893241}
   scrollbar: {fileID: 1066444610}
+  vqaURL: http://3.37.129.107:5000
 --- !u!4 &638079409
 Transform:
   m_ObjectHideFlags: 0
@@ -16669,6 +16670,7 @@ MonoBehaviour:
   timer: 
   time_slide: {fileID: 0}
   timeText: {fileID: 34523904}
+  chatManager: {fileID: 638079408}
   caption: 
   score: 0
   combo: 0
@@ -19867,6 +19869,7 @@ MonoBehaviour:
   timer: 
   time_slide: {fileID: 1876357499}
   timeText: {fileID: 1785640102}
+  chatManager: {fileID: 638079408}
   caption: 
   score: 0
   combo: 1
